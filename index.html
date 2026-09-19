@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiden Ware Bosanko | Engineering Portfolio</title>
+    <title>Aiden Ware Bosanko | Mechanical Engineering</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -16,7 +16,7 @@
             --off-black: #080808;
             --border-color: #222222;
             --text-white: #ffffff;
-            --text-dim: #a0a0a0;
+            --text-dim: #999999;
             --accent-blue: #005A9C; /* Lockheed Blue Accent */
         }
 
@@ -63,7 +63,7 @@
         .nav-links a:hover { color: var(--accent-blue); }
 
         /* =========================================
-           HERO SECTION (ABOUT ME + RANDOM HEADSHOT BG)
+           HERO SECTION (SPLIT LAYOUT + RANDOM BG)
            ========================================= */
         .hero-section {
             position: relative;
@@ -71,6 +71,7 @@
             display: flex;
             align-items: center;
             border-bottom: 1px solid var(--border-color);
+            padding: 120px 0 80px;
         }
 
         /* DYNAMIC BACKGROUND CONTAINER */
@@ -79,17 +80,25 @@
             z-index: 0; overflow: hidden; background: var(--pure-black);
             background-size: cover; background-position: center;
             filter: grayscale(40%) contrast(110%);
-            transition: opacity 1s ease-in-out;
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
-            background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.95) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.7) 100%);
+        }
+
+        /* TWO-COLUMN GRID TO HOLD TEXT AND HEADSHOT */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-content {
-            padding-top: 80px;
-            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .status-tag {
@@ -97,40 +106,52 @@
             background: var(--accent-blue); color: var(--text-white);
             padding: 4px 10px; font-weight: 700; letter-spacing: 2px;
             display: inline-block; margin-bottom: 25px; text-transform: uppercase;
+            align-self: flex-start;
         }
 
         .name-title {
-            font-size: clamp(60px, 8vw, 100px);
+            font-size: clamp(55px, 7vw, 90px);
             line-height: 1; letter-spacing: -2px; margin-bottom: 15px;
         }
 
         .sub-title {
             font-family: 'Space Mono', monospace; font-size: 14px;
-            color: var(--text-dim); letter-spacing: 1px; margin-bottom: 40px;
+            color: var(--text-dim); letter-spacing: 1px; margin-bottom: 30px;
         }
 
         .bio-text {
-            font-size: 20px; color: #ccc; line-height: 1.7;
+            font-size: 17px; color: #ccc; line-height: 1.7;
         }
         .bio-text p { margin-bottom: 20px; font-size: inherit; color: inherit; }
         .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
+
+        /* HEADSHOT CONTAINER ON RIGHT */
+        .hero-visual {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: #111;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.5);
+        }
+        .hero-visual img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(15%) contrast(110%);
+        }
 
         /* =========================================
            PAYLOAD SECTION (DOSSIERS)
            ========================================= */
         .payload-section {
-            padding: 120px 0;
+            padding: 100px 0;
             background: var(--off-black);
             border-bottom: 1px solid var(--border-color);
         }
 
         .section-header {
-            font-size: 32px; letter-spacing: -0.5px; margin-bottom: 50px;
+            font-size: 32px; letter-spacing: -0.5px; margin-bottom: 40px;
             display: flex; justify-content: space-between; align-items: flex-end;
-        }
-        .clearance {
-            font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; 
-            color: var(--accent-blue); letter-spacing: 2px; text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 15px;
         }
 
         .doc-grid {
@@ -139,12 +160,12 @@
 
         .doc-card {
             background: var(--pure-black); border: 1px solid var(--border-color);
-            padding: 50px 40px; display: flex; flex-direction: column; justify-content: space-between;
+            padding: 40px; display: flex; flex-direction: column; justify-content: space-between;
             text-decoration: none; color: inherit; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; overflow: hidden; min-height: 250px;
+            position: relative; overflow: hidden; min-height: 220px;
         }
         .doc-card:hover {
-            border-color: var(--accent-blue); transform: translateY(-5px);
+            border-color: var(--accent-blue); transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(0, 90, 156, 0.15);
         }
         .doc-card::before {
@@ -154,13 +175,13 @@
         .doc-card:hover::before { transform: scaleY(1); }
 
         .doc-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); margin-bottom: 15px; display: block; }
-        .doc-title { font-size: 36px; margin-bottom: 15px; line-height: 1.1; letter-spacing: -1px; }
-        .doc-desc { font-size: 15px; color: #888; margin-bottom: 40px; line-height: 1.6; }
+        .doc-title { font-size: 32px; margin-bottom: 12px; line-height: 1.1; letter-spacing: -1px; }
+        .doc-desc { font-size: 14px; color: #888; margin-bottom: 30px; line-height: 1.6; }
 
         .btn-download {
             font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
             letter-spacing: 1px; text-transform: uppercase; color: var(--pure-black);
-            background: var(--dossier-grey); padding: 18px; text-align: center; transition: 0.3s;
+            background: var(--dossier-grey); padding: 15px; text-align: center; transition: 0.3s;
         }
         .doc-card:hover .btn-download { background: var(--accent-blue); color: var(--text-white); }
 
@@ -172,31 +193,29 @@
         }
 
         .footer-grid {
-            display: grid; grid-template-columns: 1fr 300px; gap: 80px;
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px;
         }
 
-        .impact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 30px;}
+        .impact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 25px;}
         
-        .impact-item { border-left: 2px solid var(--border-color); padding-left: 20px; transition: 0.3s; }
-        .impact-item:hover { border-color: var(--accent-blue); }
-        
-        .impact-title { font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--text-white); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px;}
-        .impact-desc { font-size: 16px; color: var(--text-dim); line-height: 1.6; }
+        .impact-item { border-left: 2px solid var(--accent-blue); padding-left: 20px; }
+        .impact-title { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--text-white); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 1px;}
+        .impact-desc { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
 
         .contact-links { display: flex; flex-direction: column; gap: 20px; }
         .contact-links a {
-            font-family: 'Oswald', sans-serif; font-size: 28px; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 26px; color: var(--text-white);
             text-decoration: none; letter-spacing: 1px; transition: 0.3s; display: block;
             border-bottom: 1px solid var(--border-color); padding-bottom: 10px;
         }
         .contact-links a:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
 
         @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-visual { max-width: 350px; margin: 0 auto; }
             .doc-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 50px; }
-            .hero-section { min-height: auto; padding-bottom: 100px; }
-            .hero-content { padding-top: 150px; }
-            .name-title { font-size: 65px; }
+            .hero-section { min-height: auto; padding-top: 100px; padding-bottom: 60px; }
         }
     </style>
 </head>
@@ -215,19 +234,26 @@
             </div>
         </nav>
 
-        <!-- HERO & ABOUT -->
+        <!-- HERO & ABOUT (SPLIT LAYOUT WITH HEADSHOT) -->
         <header class="hero-section">
             <div id="heroBg" class="hero-bg"></div>
             <div class="hero-overlay"></div>
 
-            <div class="hero-content container">
-                <div class="status-tag">SYSTEMS LEAD & ENGINEER</div>
-                <h1 class="name-title">AIDEN WARE BOSANKO</h1>
-                <div class="sub-title">TEXAS A&M UNIVERSITY // B.S. MECHANICAL ENGINEERING</div>
-                
-                <div class="bio-text">
-                    <p>Engineering high-stakes hardware, propulsion elements, and autonomous systems. Blending computational fluid dynamics with <span>hands-on fabrication</span> to bridge the gap between simulation and physical reality.</p>
-                    <p>Practical experience spanning full-cycle engineering workflows—from developing Python DAQ pipelines and 6-DOF flight trajectory engines, to managing composite UAV fabrication and diagnosing complex mechanical failures in ICE powertrains.</p>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="status-tag">MECHANICAL ENGINEERING // TEXAS A&M</div>
+                    <h1 class="name-title">AIDEN WARE BOSANKO</h1>
+                    <div class="sub-title">SYSTEMS DESIGN // PROPULSION // HARDWARE PROTOTYPING</div>
+                    
+                    <div class="bio-text">
+                        <p>I'm a mechanical engineering student at <span>Texas A&M University</span> focused on building physical hardware that actually works in the real world. My approach combines rigorous analytical modeling with hands-on fabrication.</p>
+                        <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition pipelines in the lab, I care about clean engineering principles, robust design, and reliable execution.</p>
+                    </div>
+                </div>
+
+                <!-- HEADSHOT SLOT -->
+                <div class="hero-visual">
+                    <img src="assets/profile.jpg" alt="Aiden Ware Bosanko">
                 </div>
             </div>
         </header>
@@ -237,7 +263,6 @@
             <div class="container">
                 <div class="section-header">
                     <h2>TECHNICAL DOSSIERS</h2>
-                    <span class="clearance">CLEARANCE: PUBLIC</span>
                 </div>
                 
                 <div class="doc-grid">
@@ -246,7 +271,7 @@
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
                             <h3 class="doc-title">PROFESSIONAL RESUME</h3>
-                            <p class="doc-desc">Overview of education, technical skills, and engineering field experience at CPS Energy and systems integration at Texas A&M.</p>
+                            <p class="doc-desc">Overview of education, technical competencies, and corporate engineering experience at CPS Energy.</p>
                         </div>
                         <div class="btn-download">VIEW RESUME ↗</div>
                     </a>
@@ -256,7 +281,7 @@
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
                             <h3 class="doc-title">PROJECT PORTFOLIO</h3>
-                            <p class="doc-desc">Comprehensive visual breakdown of active builds, including CAD models, DAQ pipeline architecture, and physical hardware assembly.</p>
+                            <p class="doc-desc">Detailed visual documentation of hardware builds, CAD assemblies, and custom DAQ testing infrastructure.</p>
                         </div>
                         <div class="btn-download">VIEW PORTFOLIO ↗</div>
                     </a>
@@ -268,27 +293,28 @@
         <footer class="footer-section container">
             <div class="footer-grid">
                 
-                <!-- IMPACT TIE-UPS -->
+                <!-- REAL RECRUITER FLEX / IMPACT -->
                 <div>
-                    <h2 style="font-size: 24px; margin-bottom: 30px; letter-spacing: -0.5px;">CORE CAPABILITIES</h2>
+                    <h2 style="font-size: 24px; margin-bottom: 30px; letter-spacing: -0.5px;">MILSTONES & RECOGNITION</h2>
                     <ul class="impact-list">
                         <li class="impact-item">
-                            <div class="impact-title">SYSTEMS ARCHITECTURE</div>
-                            <div class="impact-desc">Integrating fluid mechanics, thermodynamics, and electrical routing into cohesive, testable assemblies.</div>
+                            <div class="impact-title">CLEARY ZIMMERMANN SCHOLARSHIP</div>
+                            <div class="impact-desc">Awarded competitive engineering scholarship recognizing academic performance and technical ambition.</div>
                         </li>
                         <li class="impact-item">
-                            <div class="impact-title">DATA ACQUISITION & CONTROL</div>
-                            <div class="impact-desc">Deploying Python, C++, and MATLAB to extract real-time telemetry from physical hardware environments.</div>
+                            <div class="impact-title">FOUNDER & DIRECTOR — NLC STEM</div>
+                            <div class="impact-desc">Bootstrapped and scaled the fastest-growing STEM organization in the Alamo Colleges district to 50+ active members.</div>
                         </li>
                         <li class="impact-item">
-                            <div class="impact-title">HARDWARE FABRICATION</div>
-                            <div class="impact-desc">Translating SolidWorks CAD models into functional prototypes via 3D printing, composite layups, and machining.</div>
+                            <div class="impact-title">HONORS & DEAN'S LIST</div>
+                            <div class="impact-desc">Completed Associate of Science in Engineering with Honors before transferring to Texas A&M's Engineering Academy.</div>
                         </li>
                     </ul>
                 </div>
 
                 <!-- CONTACT LINKS -->
                 <div class="contact-links">
+                    <h2 style="font-size: 24px; margin-bottom: 30px; letter-spacing: -0.5px;">DIRECT COMMS</h2>
                     <a href="https://www.linkedin.com/in/abosanko" target="_blank">LINKEDIN ↗</a>
                     <a href="https://github.com/PimpDaddyDev" target="_blank">GITHUB ↗</a>
                     <a href="mailto:aidenbosanko@gmail.com">EMAIL ↗</a>
@@ -299,7 +325,7 @@
 
     </div>
 
-    <!-- JAVASCRIPT FOR RANDOM HEADSHOT / OUTREACH BACKGROUND SELECTOR -->
+    <!-- JAVASCRIPT FOR RANDOM BACKGROUND PHOTO SELECTOR -->
     <script>
         const photos = [
             'assets/cps-hardhat.jpg',
@@ -312,11 +338,8 @@
             'assets/scholarship.jpg'
         ];
 
-        // Pick a random index from the array on page load
         const randomIndex = Math.floor(Math.random() * photos.length);
         const selectedPhoto = photos[randomIndex];
-
-        // Apply it to the hero background element
         document.getElementById('heroBg').style.backgroundImage = `url('${selectedPhoto}')`;
     </script>
 
