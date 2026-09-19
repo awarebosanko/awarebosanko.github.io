@@ -12,9 +12,9 @@
            ========================================= */
         :root {
             --dossier-grey: #e4e4e4;
-            --pure-black: #000000;
-            --off-black: #080808;
-            --border-color: #222222;
+            --pure-black: #050505;
+            --off-black: #111111;
+            --border-color: #262626;
             --text-white: #ffffff;
             --text-dim: #999999;
             --accent-blue: #005A9C; /* Lockheed Blue Accent */
@@ -67,11 +67,11 @@
            ========================================= */
         .hero-section {
             position: relative;
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             border-bottom: 1px solid var(--border-color);
-            padding: 120px 0 80px;
+            padding: 140px 0 100px;
         }
 
         /* DYNAMIC BACKGROUND CONTAINER */
@@ -79,12 +79,12 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0; overflow: hidden; background: var(--pure-black);
             background-size: cover; background-position: center;
-            filter: grayscale(40%) contrast(110%);
+            filter: grayscale(30%) contrast(110%);
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
-            background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.7) 100%);
+            background: linear-gradient(90deg, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.88) 55%, rgba(5,5,5,0.75) 100%);
         }
 
         /* TWO-COLUMN GRID TO HOLD TEXT AND HEADSHOT */
@@ -104,25 +104,26 @@
         .status-tag {
             font-family: 'Space Mono', monospace; font-size: 12px;
             background: var(--accent-blue); color: var(--text-white);
-            padding: 4px 10px; font-weight: 700; letter-spacing: 2px;
+            padding: 5px 12px; font-weight: 700; letter-spacing: 2px;
             display: inline-block; margin-bottom: 25px; text-transform: uppercase;
             align-self: flex-start;
         }
 
         .name-title {
-            font-size: clamp(55px, 7vw, 90px);
+            font-size: clamp(50px, 7vw, 85px);
             line-height: 1; letter-spacing: -2px; margin-bottom: 15px;
         }
 
         .sub-title {
-            font-family: 'Space Mono', monospace; font-size: 14px;
-            color: var(--text-dim); letter-spacing: 1px; margin-bottom: 30px;
+            font-family: 'Space Mono', monospace; font-size: 13px;
+            color: var(--text-dim); letter-spacing: 1px; margin-bottom: 25px;
+            text-transform: uppercase;
         }
 
         .bio-text {
             font-size: 17px; color: #ccc; line-height: 1.7;
         }
-        .bio-text p { margin-bottom: 20px; font-size: inherit; color: inherit; }
+        .bio-text p { margin-bottom: 18px; font-size: inherit; color: inherit; }
         .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
 
         /* HEADSHOT CONTAINER ON RIGHT */
@@ -132,11 +133,11 @@
             background: #111;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.5);
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.6);
         }
         .hero-visual img {
             width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(15%) contrast(110%);
+            filter: grayscale(10%) contrast(105%);
         }
 
         /* =========================================
@@ -150,7 +151,6 @@
 
         .section-header {
             font-size: 32px; letter-spacing: -0.5px; margin-bottom: 40px;
-            display: flex; justify-content: space-between; align-items: flex-end;
             border-bottom: 1px solid var(--border-color); padding-bottom: 15px;
         }
 
@@ -186,36 +186,87 @@
         .doc-card:hover .btn-download { background: var(--accent-blue); color: var(--text-white); }
 
         /* =========================================
-           IMPACT & CONTACT (BOTTOM)
+           MILESTONES & RECOGNITION (HORIZONTAL GRID)
+           ========================================= */
+        .milestones-section {
+            padding: 100px 0;
+            background: var(--pure-black);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .milestone-card {
+            background: var(--off-black);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            transition: 0.3s;
+        }
+        .milestone-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+        .milestone-card::top {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--accent-blue);
+        }
+        
+        .milestone-tag {
+            font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .milestone-title {
+            font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: -0.5px; line-height: 1.1; color: var(--text-white);
+        }
+        .milestone-desc {
+            font-size: 14px; color: var(--text-dim); line-height: 1.6;
+        }
+
+        /* =========================================
+           FOOTER / LINKS
            ========================================= */
         .footer-section {
-            padding: 100px 0 150px;
+            padding: 60px 0 100px;
+            background: var(--off-black);
         }
 
-        .footer-grid {
-            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px;
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
         }
 
-        .impact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 25px;}
-        
-        .impact-item { border-left: 2px solid var(--accent-blue); padding-left: 20px; }
-        .impact-title { font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--text-white); text-transform: uppercase; margin-bottom: 6px; letter-spacing: 1px;}
-        .impact-desc { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
-
-        .contact-links { display: flex; flex-direction: column; gap: 20px; }
-        .contact-links a {
-            font-family: 'Oswald', sans-serif; font-size: 26px; color: var(--text-white);
-            text-decoration: none; letter-spacing: 1px; transition: 0.3s; display: block;
-            border-bottom: 1px solid var(--border-color); padding-bottom: 10px;
+        .footer-brand {
+            font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
         }
-        .contact-links a:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+
+        .footer-links {
+            display: flex;
+            gap: 40px;
+        }
+        .footer-links a {
+            font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--text-white);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+        }
+        .footer-links a:hover { color: var(--accent-blue); }
 
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
             .hero-visual { max-width: 350px; margin: 0 auto; }
             .doc-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; gap: 50px; }
-            .hero-section { min-height: auto; padding-top: 100px; padding-bottom: 60px; }
+            .milestones-grid { grid-template-columns: 1fr; }
+            .footer-flex { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .footer-links { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -229,6 +280,7 @@
                 <a href="#" class="brand">AWB</a>
                 <div class="nav-links">
                     <a href="#dossiers">Dossiers</a>
+                    <a href="#milestones">Recognition</a>
                     <a href="mailto:aidenbosanko@gmail.com">Contact</a>
                 </div>
             </div>
@@ -241,13 +293,13 @@
 
             <div class="container hero-grid">
                 <div class="hero-content">
-                    <div class="status-tag">MECHANICAL ENGINEERING // TEXAS A&M</div>
+                    <div class="status-tag">TEXAS A&M UNIVERSITY // MECHANICAL ENGINEERING</div>
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
-                    <div class="sub-title">SYSTEMS DESIGN // PROPULSION // HARDWARE PROTOTYPING</div>
+                    <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
                     
                     <div class="bio-text">
-                        <p>I'm a mechanical engineering student at <span>Texas A&M University</span> focused on building physical hardware that actually works in the real world. My approach combines rigorous analytical modeling with hands-on fabrication.</p>
-                        <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition pipelines in the lab, I care about clean engineering principles, robust design, and reliable execution.</p>
+                        <p>I'm a mechanical engineering student at <span>Texas A&M University</span> focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
+                        <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
                     </div>
                 </div>
 
@@ -271,7 +323,7 @@
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
                             <h3 class="doc-title">PROFESSIONAL RESUME</h3>
-                            <p class="doc-desc">Overview of education, technical competencies, and corporate engineering experience at CPS Energy.</p>
+                            <p class="doc-desc">Overview of education, technical competencies, and corporate engineering field experience at CPS Energy.</p>
                         </div>
                         <div class="btn-download">VIEW RESUME ↗</div>
                     </a>
@@ -289,43 +341,50 @@
             </div>
         </section>
 
-        <!-- IMPACT & CONTACT -->
-        <footer class="footer-section container">
-            <div class="footer-grid">
-                
-                <!-- REAL RECRUITER FLEX / IMPACT -->
-                <div>
-                    <h2 style="font-size: 24px; margin-bottom: 30px; letter-spacing: -0.5px;">MILSTONES & RECOGNITION</h2>
-                    <ul class="impact-list">
-                        <li class="impact-item">
-                            <div class="impact-title">CLEARY ZIMMERMANN SCHOLARSHIP</div>
-                            <div class="impact-desc">Awarded competitive engineering scholarship recognizing academic performance and technical ambition.</div>
-                        </li>
-                        <li class="impact-item">
-                            <div class="impact-title">FOUNDER & DIRECTOR — NLC STEM</div>
-                            <div class="impact-desc">Bootstrapped and scaled the fastest-growing STEM organization in the Alamo Colleges district to 50+ active members.</div>
-                        </li>
-                        <li class="impact-item">
-                            <div class="impact-title">HONORS & DEAN'S LIST</div>
-                            <div class="impact-desc">Completed Associate of Science in Engineering with Honors before transferring to Texas A&M's Engineering Academy.</div>
-                        </li>
-                    </ul>
+        <!-- MILESTONES & RECOGNITION (HORIZONTAL GRID) -->
+        <section id="milestones" class="milestones-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>RECOGNITION & MILESTONES</h2>
                 </div>
 
-                <!-- CONTACT LINKS -->
-                <div class="contact-links">
-                    <h2 style="font-size: 24px; margin-bottom: 30px; letter-spacing: -0.5px;">DIRECT COMMS</h2>
-                    <a href="https://www.linkedin.com/in/abosanko" target="_blank">LINKEDIN ↗</a>
-                    <a href="https://github.com/PimpDaddyDev" target="_blank">GITHUB ↗</a>
-                    <a href="mailto:aidenbosanko@gmail.com">EMAIL ↗</a>
-                </div>
+                <div class="milestones-grid">
+                    <div class="milestone-card">
+                        <span class="milestone-tag">ACADEMIC EXCELLENCE</span>
+                        <h3 class="milestone-title">Cleary Zimmermann Scholarship</h3>
+                        <p class="milestone-desc">Awarded competitive engineering scholarship recognizing technical ambition and academic performance across Texas higher education.</p>
+                    </div>
 
+                    <div class="milestone-card">
+                        <span class="milestone-tag">TECHNICAL LEADERSHIP</span>
+                        <h3 class="milestone-title">Founder — NLC STEM</h3>
+                        <p class="milestone-desc">Bootstrapped and scaled the fastest-growing STEM organization in the Alamo Colleges district to 50+ active engineering members.</p>
+                    </div>
+
+                    <div class="milestone-card">
+                        <span class="milestone-tag">HONORS & TRANSFER</span>
+                        <h3 class="milestone-title">Dean's List & Honors</h3>
+                        <p class="milestone-desc">Completed Associate of Science in Engineering with Honors at Northeast Lakeview College before transferring to Texas A&M.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER / HORIZONTAL LINKS -->
+        <footer class="footer-section">
+            <div class="container footer-flex">
+                <div class="footer-brand">AIDEN WARE BOSANKO</div>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/abosanko" target="_blank">LinkedIn ↗</a>
+                    <a href="https://github.com/PimpDaddyDev" target="_blank">GitHub ↗</a>
+                    <a href="mailto:aidenbosanko@gmail.com">Email ↗</a>
+                </div>
             </div>
         </footer>
 
     </div>
 
-    <!-- JAVASCRIPT FOR RANDOM BACKGROUND PHOTO SELECTOR -->
+    <!-- JAVASCRIPT FOR RANDOM HEADSHOT / OUTREACH BACKGROUND SELECTOR -->
     <script>
         const photos = [
             'assets/cps-hardhat.jpg',
