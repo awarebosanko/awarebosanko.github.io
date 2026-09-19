@@ -13,12 +13,11 @@
         :root {
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
-            --off-black: #080808;
-            --card-black: #121212;
-            --border-color: #222222;
+            --off-black: #0d0d0d;
+            --border-color: #262626;
             --text-white: #ffffff;
             --text-dim: #999999;
-            --accent-blue: #005A9C; /* Lockheed Blue Accent */
+            --accent-blue: #005A9C;
         }
 
         html, body {
@@ -56,25 +55,23 @@
         .mega-header .container {
             display: flex; justify-content: space-between; align-items: center;
         }
-        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 1px; color: var(--pure-black); text-decoration: none;}
+        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 1px; color: var(--pure-black); }
         .nav-links a { 
             font-family: 'Inter', sans-serif; color: var(--pure-black); 
-            text-decoration: none; text-transform: uppercase; 
-            font-size: 13px; margin-left: 35px; font-weight: 700; 
+            text-transform: uppercase; font-size: 13px; margin-left: 35px; font-weight: 700; 
             letter-spacing: 1px; transition: 0.3s; 
         }
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
-           HERO SECTION (COMPACT SPLIT + ACTIVE SLIDESHOW)
+           HERO SECTION
            ========================================= */
         .hero-section {
             position: relative;
-            min-height: 70vh;
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            padding: 95px 0 50px;
+            padding: 120px 0 60px; /* Reduced vertical footprint */
             background-color: var(--pure-black);
         }
 
@@ -97,7 +94,7 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.25fr 0.75fr;
+            grid-template-columns: 1.3fr 0.7fr;
             gap: 40px;
             align-items: center;
             position: relative;
@@ -113,51 +110,45 @@
         .status-tag {
             font-family: 'Space Mono', monospace; font-size: 11px;
             background: var(--accent-blue); color: var(--text-white);
-            padding: 4px 10px; font-weight: 700; letter-spacing: 2px;
-            display: inline-block; margin-bottom: 10px; text-transform: uppercase;
+            padding: 5px 12px; font-weight: 700; letter-spacing: 2px;
+            display: inline-block; margin-bottom: 15px; text-transform: uppercase;
             align-self: flex-start;
         }
 
         .name-title {
-            font-size: clamp(38px, 5vw, 65px);
-            line-height: 1; letter-spacing: -2px; margin-bottom: 8px;
+            font-size: clamp(50px, 6.5vw, 85px); /* Scaled up text */
+            line-height: 1; letter-spacing: -2px; margin-bottom: 12px;
             color: var(--text-white);
         }
 
         .sub-title {
-            font-family: 'Space Mono', monospace; font-size: 12px;
-            color: #ddd; letter-spacing: 1px; margin-bottom: 15px;
+            font-family: 'Space Mono', monospace; font-size: 13px;
+            color: #ddd; letter-spacing: 1px; margin-bottom: 25px;
             text-transform: uppercase;
         }
 
         .bio-text {
-            font-size: 15px; color: #ccc; line-height: 1.6;
+            font-size: 16px; color: #ccc; line-height: 1.6;
         }
-        .bio-text p { margin-bottom: 10px; font-size: inherit; color: inherit; }
-        .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
+        .bio-text p { margin-bottom: 12px; }
+        .bio-text a { color: var(--accent-blue); font-weight: 700; border: none; text-decoration: none; transition: 0.2s;}
+        .bio-text a:hover { opacity: 0.7; }
 
-        /* SKILLS BULLET LIST UNDER BIO */
-        .skills-inline-list {
-            font-family: 'Space Mono', monospace;
-            font-size: 11px;
-            color: var(--text-dim);
-            margin-top: 12px;
-            margin-bottom: 0;
-            padding-left: 16px;
+        /* CLEAN BULLET POINTS UNDER BIO */
+        .skills-bullet-list {
+            margin-top: 15px;
+            padding-left: 18px;
+            color: #bbb;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
             line-height: 1.6;
         }
-        .skills-inline-list li {
-            color: #bbb;
-            margin-bottom: 3px;
-        }
-        .skills-inline-list li strong {
-            color: #fff;
-        }
+        .skills-bullet-list li { margin-bottom: 8px; }
+        .skills-bullet-list li strong { color: #fff; }
 
-        /* HEADSHOT SLOT */
         .hero-visual {
             width: 100%;
-            max-width: 260px;
+            max-width: 280px;
             aspect-ratio: 4/5;
             background: #111;
             border: 2px solid var(--text-white);
@@ -171,107 +162,127 @@
         }
 
         /* =========================================
-           PAYLOAD SECTION (DOSSIERS)
+           PAYLOAD SECTION (DOSSIERS + PDF IFRAMES)
            ========================================= */
         .payload-section {
-            padding: 60px 0;
+            padding: 80px 0;
             background: var(--dossier-grey);
             color: var(--pure-black);
             border-bottom: 2px solid var(--pure-black);
         }
 
         .section-header {
-            font-size: 30px; letter-spacing: -1px; margin-bottom: 20px;
-            border-bottom: 2px solid var(--pure-black); padding-bottom: 8px;
+            font-size: 36px; letter-spacing: -1px; margin-bottom: 35px;
+            border-bottom: 2px solid var(--pure-black); padding-bottom: 12px;
             color: var(--pure-black);
         }
 
         .doc-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 25px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
         }
 
         .doc-card {
             background: var(--text-white); border: 2px solid var(--pure-black);
-            padding: 25px; display: flex; flex-direction: column; justify-content: space-between;
-            text-decoration: none; color: var(--pure-black); transition: 0.3s;
-            box-shadow: 5px 5px 0px var(--pure-black);
+            padding: 30px; display: flex; flex-direction: column;
+            color: var(--pure-black); transition: 0.3s;
+            box-shadow: 6px 6px 0px var(--pure-black);
         }
         .doc-card:hover {
             transform: translateY(-3px);
-            box-shadow: 8px 8px 0px var(--pure-black);
+            box-shadow: 10px 10px 0px var(--pure-black);
         }
 
-        .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 8px; display: block; font-weight: 700; }
-        .doc-title { font-size: 26px; margin-bottom: 8px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
-        .doc-desc { font-size: 13px; color: #444; margin-bottom: 20px; line-height: 1.5; }
+        .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 10px; display: block; font-weight: 700; }
+        .doc-title { font-size: 32px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
+        .doc-desc { font-size: 14px; color: #444; margin-bottom: 25px; line-height: 1.5; }
+
+        /* PDF PREVIEW BOXES */
+        .pdf-preview-box {
+            width: 100%;
+            height: 300px;
+            background: #eee;
+            border: 2px solid var(--pure-black);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .pdf-preview-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
         .btn-download {
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
             letter-spacing: 1px; text-transform: uppercase; color: var(--text-white);
-            background: var(--pure-black); padding: 12px; text-align: center; transition: 0.3s;
-            display: block; text-decoration: none;
+            background: var(--pure-black); padding: 15px; text-align: center; transition: 0.3s;
+            display: block; text-decoration: none; margin-top: auto;
         }
-        .doc-card:hover .btn-download { background: var(--accent-blue); }
+        .btn-download:hover { background: var(--accent-blue); }
 
         /* =========================================
-           MILESTONES & RECOGNITION (COHESIVE PACING)
+           MILESTONES & RECOGNITION (MATCHES DOSSIER STYLING)
            ========================================= */
         .milestones-section {
-            padding: 60px 0;
+            padding: 80px 0;
             background: var(--off-black);
             border-bottom: 2px solid var(--border-color);
+        }
+        .milestones-section .section-header {
+            color: var(--text-white); border-color: var(--border-color);
         }
 
         .milestones-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 20px;
+            gap: 30px;
+            margin-top: 30px;
         }
 
+        /* UPDATED: Cards now have white background + black text to match dossiers */
         .milestone-card {
-            background: var(--card-black);
-            border: 1px solid var(--border-color);
+            background: var(--text-white);
+            border: 2px solid var(--pure-black);
             display: flex;
             flex-direction: column;
             overflow: hidden;
             transition: 0.3s;
+            box-shadow: 6px 6px 0px var(--pure-black);
         }
         .milestone-card:hover {
-            border-color: var(--accent-blue);
             transform: translateY(-3px);
+            box-shadow: 10px 10px 0px var(--pure-black);
         }
 
         .milestone-img {
             width: 100%;
-            height: 160px;
+            height: 180px;
             object-fit: cover;
             filter: grayscale(15%) contrast(110%);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--pure-black);
         }
 
         .milestone-body {
-            padding: 18px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 10px;
         }
 
         .milestone-tag {
-            font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
         }
         .milestone-title {
-            font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: -0.5px; line-height: 1.1; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: -0.5px; line-height: 1.1; color: var(--pure-black);
         }
         .milestone-desc {
-            font-size: 12px; color: var(--text-dim); line-height: 1.4;
+            font-size: 14px; color: #444; line-height: 1.5;
         }
 
         /* =========================================
-           FOOTER / HORIZONTAL LINKS
+           FOOTER 
            ========================================= */
         .footer-section {
-            padding: 35px 0 50px;
+            padding: 50px 0 80px;
             background: var(--pure-black);
             border-top: 1px solid var(--border-color);
         }
@@ -285,26 +296,26 @@
         }
 
         .footer-brand {
-            font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
         }
 
         .footer-links {
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
         .footer-links a {
-            font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; color: var(--text-white);
+            font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--text-white);
             text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
         .footer-links a:hover { color: var(--accent-blue); }
 
         @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 25px; }
-            .hero-visual { max-width: 220px; margin: 0 auto; }
+            .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-visual { max-width: 260px; margin: 0 auto; }
             .doc-grid { grid-template-columns: 1fr; }
             .milestones-grid { grid-template-columns: 1fr; }
-            .footer-flex { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .footer-links { flex-direction: column; gap: 8px; }
+            .footer-flex { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .footer-links { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -313,13 +324,13 @@
     <div class="master-wrapper">
         
         <!-- NAV -->
-        <nav id="contact" class="mega-header">
+        <nav class="mega-header">
             <div class="container">
                 <a href="#" class="brand">AWB</a>
                 <div class="nav-links">
                     <a href="#dossiers">Dossiers</a>
                     <a href="#milestones">Recognition</a>
-                    <a href="mailto:aidenbosanko@gmail.com">Contact ↗</a>
+                    <a href="#footer">Contact ↗</a>
                 </div>
             </div>
         </nav>
@@ -338,15 +349,15 @@
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
 
                     <div class="bio-text">
-                        <p>I'm a mechanical engineering student at Texas A&M University focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
+                        <p>I'm a mechanical engineering student at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a> focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
                         <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
-                        
-                        <!-- BULLET SKILLS LIST UNDER BIO -->
-                        <ul class="skills-inline-list">
-                            <li><strong>Core Stack:</strong> Python (NumPy/Pandas), SolidWorks CAD & CFD, MATLAB & Simulink, C++</li>
-                            <li><strong>Systems & Hardware:</strong> Linux Server, Docker, DAQ Instrumentation, FEA & Structural Testing</li>
-                        </ul>
                     </div>
+
+                    <!-- BULLET SKILLS LIST -->
+                    <ul class="skills-bullet-list">
+                        <li><strong>Core Stack:</strong> Python (NumPy/Pandas), SolidWorks CAD & CFD, MATLAB & Simulink, C++</li>
+                        <li><strong>Systems & Hardware:</strong> Linux Server, Docker, DAQ Instrumentation, FEA & Structural Testing</li>
+                    </ul>
                 </div>
 
                 <!-- HEADSHOT SLOT -->
@@ -356,7 +367,7 @@
             </div>
         </header>
 
-        <!-- DOSSIERS (THE PAYLOAD) -->
+        <!-- DOSSIERS WITH PDF PREVIEWS -->
         <section id="dossiers" class="payload-section">
             <div class="container" style="max-width: 1350px;">
                 <div class="section-header">
@@ -365,37 +376,44 @@
                 
                 <div class="doc-grid">
                     <!-- RESUME CARD -->
-                    <a href="assets/resume.pdf" target="_blank" class="doc-card">
-                        <div>
-                            <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
-                            <h3 class="doc-title">PROFESSIONAL RESUME</h3>
-                            <p class="doc-desc">Overview of education, technical competencies, and engineering field experience at CPS Energy.</p>
+                    <div class="doc-card">
+                        <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
+                        <h3 class="doc-title">PROFESSIONAL RESUME</h3>
+                        <p class="doc-desc">Overview of education, technical competencies, and engineering field experience at CPS Energy.</p>
+                        
+                        <!-- PDF PREVIEW -->
+                        <div class="pdf-preview-box">
+                            <iframe src="assets/resume.pdf#view=FitH" title="Resume Preview"></iframe>
                         </div>
-                        <span class="btn-download">VIEW & DOWNLOAD RESUME ↗</span>
-                    </a>
+
+                        <a href="assets/resume.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
+                    </div>
 
                     <!-- PORTFOLIO CARD -->
-                    <a href="assets/portfolio.pdf" target="_blank" class="doc-card">
-                        <div>
-                            <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
-                            <h3 class="doc-title">PROJECT PORTFOLIO</h3>
-                            <p class="doc-desc">Detailed visual documentation of mechanical builds, CAD assemblies, and custom testing infrastructure.</p>
+                    <div class="doc-card">
+                        <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
+                        <h3 class="doc-title">PROJECT PORTFOLIO</h3>
+                        <p class="doc-desc">Detailed visual documentation of mechanical builds, CAD assemblies, and custom testing infrastructure.</p>
+                        
+                        <!-- PDF PREVIEW -->
+                        <div class="pdf-preview-box">
+                            <iframe src="assets/portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
                         </div>
-                        <span class="btn-download">VIEW & DOWNLOAD PORTFOLIO ↗</span>
-                    </a>
+
+                        <a href="assets/portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- MILESTONES & RECOGNITION -->
+        <!-- MILESTONES & RECOGNITION (MATCHES DOSSIER CARD STYLING) -->
         <section id="milestones" class="milestones-section">
-            <div class="container">
-                <div class="section-header" style="color: var(--text-white); border-bottom: 2px solid var(--border-color);">
+            <div class="container" style="max-width: 1350px;">
+                <div class="section-header">
                     <h2>RECOGNITION & MILESTONES</h2>
                 </div>
 
                 <div class="milestones-grid">
-                    <!-- CARD 1: SCHOLARSHIP -->
                     <div class="milestone-card">
                         <img src="assets/Scholarship-awarded.jpg" alt="Cleary Zimmermann Scholarship Check Presentation" class="milestone-img">
                         <div class="milestone-body">
@@ -405,7 +423,6 @@
                         </div>
                     </div>
 
-                    <!-- CARD 2: STEM CLUB -->
                     <div class="milestone-card">
                         <img src="assets/STEM-Club-ceramony.jpeg" alt="NLC STEM Organization Ceremony" class="milestone-img">
                         <div class="milestone-body">
@@ -415,7 +432,6 @@
                         </div>
                     </div>
 
-                    <!-- CARD 3: ASSOCIATES / HONORS -->
                     <div class="milestone-card">
                         <img src="assets/Associates-awarded.jpeg" alt="Associate of Science Diploma with Honors" class="milestone-img">
                         <div class="milestone-body">
@@ -429,7 +445,7 @@
         </section>
 
         <!-- FOOTER -->
-        <footer class="footer-section">
+        <footer id="footer" class="footer-section">
             <div class="container footer-flex">
                 <div class="footer-brand">AIDEN WARE BOSANKO</div>
                 <div class="footer-links">
