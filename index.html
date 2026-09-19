@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aiden Ware Bosanko | Systems & Hardware</title>
+    <title>Aiden Ware Bosanko | Engineering Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
@@ -17,30 +17,20 @@
             --border-color: #222222;
             --text-white: #ffffff;
             --text-dim: #a0a0a0;
-            
-            /* TACTICAL ACCENT: LOCKHEED / DEFENSE BLUE */
-            --accent-blue: #005A9C; 
-            --accent-blue-hover: #00457A;
+            --accent-blue: #005A9C; /* Lockheed Blue Accent */
         }
 
         html, body {
-            margin: 0 !important; padding: 0 !important;
-            background-color: var(--pure-black) !important;
-            overflow-x: hidden !important; 
+            margin: 0; padding: 0;
+            background-color: var(--pure-black);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        .master-wrapper {
-            background-color: var(--pure-black);
-            width: 100vw !important;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            min-height: 100vh;
-        }
-
         .container { 
-            max-width: 1350px; 
+            max-width: 1200px; 
             margin: 0 auto; 
             padding: 0 20px; 
             position: relative; 
@@ -48,358 +38,287 @@
         }
 
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; margin: 0; }
-        p { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: var(--text-dim); margin: 0; }
-
+        
         /* =========================================
-           NAV: UNIFIED GREY BAR
+           NAV BAR
            ========================================= */
         .mega-header {
-            background-color: var(--dossier-grey);
-            padding: 20px 0; 
-            border-bottom: 2px solid var(--pure-black);
-            position: relative;
+            background-color: transparent;
+            padding: 30px 0; 
+            position: absolute;
+            width: 100%;
+            top: 0;
             z-index: 100;
         }
         .mega-header .container {
             display: flex; justify-content: space-between; align-items: center;
         }
-        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 1px; color: var(--pure-black); text-decoration: none;}
+        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 1px; color: var(--text-white); text-decoration: none;}
         .nav-links a { 
-            font-family: 'Inter', sans-serif; color: var(--pure-black); 
+            font-family: 'Inter', sans-serif; color: var(--text-white); 
             text-decoration: none; text-transform: uppercase; 
             font-size: 14px; margin-left: 45px; font-weight: 700; 
             letter-spacing: 1px; transition: 0.3s; 
         }
-        .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
+        .nav-links a:hover { color: var(--accent-blue); }
 
         /* =========================================
-           HERO SLIDESHOW BACKGROUND (PURE CSS)
+           HERO SECTION (ABOUT ME + RANDOM HEADSHOT BG)
            ========================================= */
-        .hero-background {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            overflow: hidden;
-            background: var(--pure-black);
-        }
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1;
-            /* Fades from semi-transparent at top to solid black at bottom */
-            background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,1) 100%);
-        }
-        .slide {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            opacity: 0; filter: grayscale(40%);
-            animation: crossfade 15s infinite;
-        }
-        /* CHANGE THESE URLS TO YOUR PROJECT/ACTION PHOTOS */
-        .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=2000&auto=format&fit=crop'); animation-delay: 0s; }
-        .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?q=80&w=2000&auto=format&fit=crop'); animation-delay: 5s; }
-        .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1616422285623-13ff0162193c?q=80&w=2000&auto=format&fit=crop'); animation-delay: 10s; }
-
-        @keyframes crossfade {
-            0%, 100% { opacity: 0; transform: scale(1.05); }
-            10%, 33% { opacity: 1; transform: scale(1); }
-            43% { opacity: 0; transform: scale(1.05); }
-        }
-
-        /* =========================================
-           TOP SECTION: PROFILE & BIO
-           ========================================= */
-        .hero-section-wrapper {
+        .hero-section {
             position: relative;
-            padding-bottom: 80px;
-        }
-
-        .page-header {
-            padding: 60px 0 50px; 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .page-title { font-size: 65px; color: var(--text-white); line-height: 1; letter-spacing: -1px; margin-bottom: 10px; }
-        .page-sub { font-family: 'Space Mono', monospace; font-size: 13px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-
-        .profile-layout {
-            display: grid;
-            grid-template-columns: 350px 1fr; 
-            gap: 80px; 
-            padding: 50px 0 0px; 
-        }
-
-        /* --- LEFT SIDEBAR --- */
-        .profile-sidebar { display: flex; flex-direction: column; gap: 25px; }
-        .profile-visual {
-            width: 100%; aspect-ratio: 4/5; background: #111;
-            border: 1px solid var(--border-color); overflow: hidden;
-        }
-        .profile-visual img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%) contrast(110%); }
-
-        .profile-meta {
-            font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); line-height: 1.6;
-            display: flex; flex-direction: column; gap: 8px;
-            border-bottom: 1px solid var(--border-color); padding-bottom: 20px;
-        }
-        .profile-meta span { color: var(--text-white); font-weight: 700; }
-
-        .action-links { display: flex; flex-direction: column; gap: 10px; }
-        .btn-action {
-            display: flex; justify-content: space-between; align-items: center;
-            background: transparent; color: #ccc;
-            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 1px;
-            text-transform: uppercase; text-decoration: none; 
-            padding: 15px 20px; border: 1px solid var(--border-color); transition: 0.3s;
-        }
-        .btn-action:hover { background: #111; color: var(--text-white); border-color: var(--accent-blue); }
-
-        /* --- RIGHT CORE --- */
-        .profile-core { display: flex; flex-direction: column; gap: 60px; }
-        .bio-header { font-size: 40px; color: var(--text-white); letter-spacing: -1px; margin-bottom: 20px; line-height: 1; border-bottom: 1px solid var(--border-color); padding-bottom: 15px;}
-        .bio-text { font-size: 18px; color: #ccc; line-height: 1.8; max-width: 95%;} 
-        .bio-text p { margin-bottom: 20px; font-size: inherit; color: inherit; }
-        .bio-highlight { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
-
-        .expertise-header { font-size: 40px; color: var(--text-white); letter-spacing: -1px; margin-bottom: 30px; line-height: 1; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
-        .expertise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; }
-        .skill-block { display: flex; flex-direction: column; gap: 15px; }
-        .skill-title {
-            font-family: 'Space Mono', monospace; font-size: 13px; color: var(--text-white); background: var(--accent-blue); padding: 8px 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; display: inline-block; align-self: flex-start;
-        }
-        .skill-list { display: flex; flex-direction: column; gap: 12px; }
-        .skill-item { font-family: 'Inter', sans-serif; font-size: 16px; color: #aaa; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px; }
-        .skill-item strong { color: #fff; font-weight: 600; }
-
-        /* =========================================
-           THE PAYLOAD (DOCUMENTS)
-           ========================================= */
-        .dossier-section {
-            padding: 80px 0 120px;
-            background: var(--off-black);
-            border-top: 1px solid var(--border-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             border-bottom: 1px solid var(--border-color);
         }
-        .dossier-header { 
-            display: flex; justify-content: space-between; align-items: flex-end; 
-            border-bottom: 2px solid var(--accent-blue); padding-bottom: 10px; margin-bottom: 60px; 
-        }
-        .dossier-title { font-size: 60px; font-weight: 700; letter-spacing: -1px; line-height: 1; color: var(--text-white); }
-        .clearance { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; color: var(--accent-blue); letter-spacing: 2px; text-transform: uppercase; }
 
-        .docs-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        /* DYNAMIC BACKGROUND CONTAINER */
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; overflow: hidden; background: var(--pure-black);
+            background-size: cover; background-position: center;
+            filter: grayscale(40%) contrast(110%);
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.95) 100%);
         }
 
-        .payload-card {
-            background: var(--pure-black);
-            border: 1px solid var(--border-color);
-            padding: 50px 40px;
-            display: flex; flex-direction: column; justify-content: space-between;
-            text-decoration: none; color: inherit;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
+        .hero-content {
+            padding-top: 80px;
+            max-width: 800px;
         }
-        .payload-card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-5px);
+
+        .status-tag {
+            font-family: 'Space Mono', monospace; font-size: 12px;
+            background: var(--accent-blue); color: var(--text-white);
+            padding: 4px 10px; font-weight: 700; letter-spacing: 2px;
+            display: inline-block; margin-bottom: 25px; text-transform: uppercase;
+        }
+
+        .name-title {
+            font-size: clamp(60px, 8vw, 100px);
+            line-height: 1; letter-spacing: -2px; margin-bottom: 15px;
+        }
+
+        .sub-title {
+            font-family: 'Space Mono', monospace; font-size: 14px;
+            color: var(--text-dim); letter-spacing: 1px; margin-bottom: 40px;
+        }
+
+        .bio-text {
+            font-size: 20px; color: #ccc; line-height: 1.7;
+        }
+        .bio-text p { margin-bottom: 20px; font-size: inherit; color: inherit; }
+        .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
+
+        /* =========================================
+           PAYLOAD SECTION (DOSSIERS)
+           ========================================= */
+        .payload-section {
+            padding: 120px 0;
+            background: var(--off-black);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            font-size: 32px; letter-spacing: -0.5px; margin-bottom: 50px;
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+        .clearance {
+            font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; 
+            color: var(--accent-blue); letter-spacing: 2px; text-transform: uppercase;
+        }
+
+        .doc-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+        }
+
+        .doc-card {
+            background: var(--pure-black); border: 1px solid var(--border-color);
+            padding: 50px 40px; display: flex; flex-direction: column; justify-content: space-between;
+            text-decoration: none; color: inherit; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden; min-height: 250px;
+        }
+        .doc-card:hover {
+            border-color: var(--accent-blue); transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 90, 156, 0.15);
         }
-        .payload-card::before {
+        .doc-card::before {
             content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
             background: var(--accent-blue); transform: scaleY(0); transform-origin: bottom; transition: 0.3s;
         }
-        .payload-card:hover::before { transform: scaleY(1); }
+        .doc-card:hover::before { transform: scaleY(1); }
 
-        .p-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); margin-bottom: 20px; display: block; }
-        .p-title { font-size: 40px; color: var(--text-white); letter-spacing: -1px; margin-bottom: 20px; line-height: 1.1; }
-        .p-desc { font-size: 16px; color: #888; line-height: 1.6; margin-bottom: 40px; }
+        .doc-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); margin-bottom: 15px; display: block; }
+        .doc-title { font-size: 36px; margin-bottom: 15px; line-height: 1.1; letter-spacing: -1px; }
+        .doc-desc { font-size: 15px; color: #888; margin-bottom: 40px; line-height: 1.6; }
 
         .btn-download {
-            display: inline-block; background: var(--dossier-grey); color: var(--pure-black);
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 1px;
-            text-transform: uppercase; text-align: center; padding: 18px 0; transition: 0.3s; width: 100%;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
+            letter-spacing: 1px; text-transform: uppercase; color: var(--pure-black);
+            background: var(--dossier-grey); padding: 18px; text-align: center; transition: 0.3s;
         }
-        .payload-card:hover .btn-download { background: var(--accent-blue); color: var(--text-white); }
+        .doc-card:hover .btn-download { background: var(--accent-blue); color: var(--text-white); }
 
         /* =========================================
-           FOOTER
+           IMPACT & CONTACT (BOTTOM)
            ========================================= */
-        footer {
-            padding: 80px 0 150px; 
-            display: flex; justify-content: space-between; align-items: flex-start; 
+        .footer-section {
+            padding: 100px 0 150px;
         }
-        .footer-left {
-            font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -1px;
-            line-height: 1; margin: 0; color: var(--text-white);
-        }
-        .footer-right {
-            font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 1px;
-            display: flex; align-items: center; 
-        }
-        .footer-right a { color: var(--text-white); text-decoration: none; margin-left: 40px; transition: 0.2s; text-transform: uppercase; }
-        .footer-right a:hover { color: var(--accent-blue); }
 
-        /* RESPONSIVE */
-        @media (max-width: 1000px) {
-            .profile-layout { grid-template-columns: 1fr; gap: 40px; }
-            .profile-visual { max-width: 400px; margin: 0 auto; }
-            .expertise-grid { grid-template-columns: 1fr; gap: 40px; }
-            .docs-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; gap: 30px; text-align: center; }
-            .footer-right { justify-content: center; width: 100%; flex-wrap: wrap; gap: 20px; }
-            .footer-right a { margin: 0; }
+        .footer-grid {
+            display: grid; grid-template-columns: 1fr 300px; gap: 80px;
+        }
+
+        .impact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 30px;}
+        
+        .impact-item { border-left: 2px solid var(--border-color); padding-left: 20px; transition: 0.3s; }
+        .impact-item:hover { border-color: var(--accent-blue); }
+        
+        .impact-title { font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--text-white); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px;}
+        .impact-desc { font-size: 16px; color: var(--text-dim); line-height: 1.6; }
+
+        .contact-links { display: flex; flex-direction: column; gap: 20px; }
+        .contact-links a {
+            font-family: 'Oswald', sans-serif; font-size: 28px; color: var(--text-white);
+            text-decoration: none; letter-spacing: 1px; transition: 0.3s; display: block;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 10px;
+        }
+        .contact-links a:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+
+        @media (max-width: 900px) {
+            .doc-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 50px; }
+            .hero-section { min-height: auto; padding-bottom: 100px; }
+            .hero-content { padding-top: 150px; }
+            .name-title { font-size: 65px; }
         }
     </style>
 </head>
 <body>
 
-<div class="master-wrapper">
-    
-    <!-- NAVIGATION -->
-    <div class="mega-header">
-        <div class="container">
-            <a href="#" class="brand">AWB</a>
-            <div class="nav-links">
-                <a href="#about">Profile</a>
-                <a href="#dossiers">Dossiers</a>
-                <a href="mailto:aidenbosanko@gmail.com">Contact</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- TOP SECTION: HERO & PROFILE -->
-    <div id="about" class="hero-section-wrapper">
+    <div class="master-wrapper">
         
-        <!-- PURE CSS SLIDESHOW -->
-        <div class="hero-background">
-            <div class="slide"></div>
-            <div class="slide"></div>
-            <div class="slide"></div>
-        </div>
-        <!-- OVERLAY TO KEEP TEXT READABLE -->
-        <div class="hero-overlay"></div>
-
-        <div class="page-header container">
-            <h1 class="page-title">ENGINEERING PROFILE</h1>
-            <div class="page-sub">SYSTEMS DESIGN // MECHANICAL ENGINEERING // DATA ACQUISITION</div>
-        </div>
-
-        <div class="profile-layout container">
-            <!-- LEFT: VISUAL & LINKS -->
-            <aside class="profile-sidebar">
-                <div class="profile-visual">
-                    <img src="PASTE_YOUR_PORTRAIT_PHOTO_LINK_HERE" alt="Aiden Ware Bosanko">
+        <!-- NAV -->
+        <nav class="mega-header">
+            <div class="container">
+                <a href="#" class="brand">AWB</a>
+                <div class="nav-links">
+                    <a href="#dossiers">Dossiers</a>
+                    <a href="mailto:aidenbosanko@gmail.com">Contact</a>
                 </div>
-                <div class="profile-meta">
-                    <div>LOCATION: <span>COLLEGE STATION, TX</span></div>
-                    <div>UNIVERSITY: <span>TEXAS A&M (CLASS OF '28)</span></div>
-                    <div>DEGREE: <span>B.S. MECHANICAL ENGINEERING</span></div>
-                </div>
-                <div class="action-links">
-                    <a href="https://www.linkedin.com/in/abosanko" target="_blank" class="btn-action">LINKEDIN <span>↗</span></a>
-                    <a href="https://github.com/PimpDaddyDev" target="_blank" class="btn-action">GITHUB <span>↗</span></a>
-                    <a href="mailto:aidenbosanko@gmail.com" class="btn-action">EMAIL <span>↗</span></a>
-                </div>
-            </aside>
+            </div>
+        </nav>
 
-            <!-- RIGHT: BIO & EXPERTISE -->
-            <main class="profile-core">
-                <section>
-                    <h2 class="bio-header">PROFESSIONAL SUMMARY</h2>
-                    <div class="bio-text">
-                        <p>As a Mechanical Engineering student at <span class="bio-highlight">Texas A&M University</span>, my focus is on the critical intersection between computational analysis and physical system design.</p>
-                        
-                        <p>My practical experience spans across full-cycle engineering workflows. I have developed custom Python-based Data Acquisition (DAQ) pipelines and 6-DOF flight trajectory engines, while concurrently managing the fabrication of composite UAV airframes and diagnosing complex mechanical failures in ICE powertrains.</p>
-                        
-                        <p>I am actively seeking internship and full-time opportunities within the defense, aerospace, and autonomous technology sectors.</p>
-                    </div>
-                </section>
+        <!-- HERO & ABOUT -->
+        <header class="hero-section">
+            <div id="heroBg" class="hero-bg"></div>
+            <div class="hero-overlay"></div>
 
-                <section>
-                    <h2 class="expertise-header">TECHNICAL EXPERTISE</h2>
-                    <div class="expertise-grid">
-                        <div class="skill-block">
-                            <span class="skill-title">SOFTWARE & CODE</span>
-                            <div class="skill-list">
-                                <div class="skill-item"><strong>Python</strong> (Pandas/NumPy)</div>
-                                <div class="skill-item"><strong>MATLAB</strong> & Simulink</div>
-                                <div class="skill-item"><strong>C++</strong> Development</div>
-                                <div class="skill-item"><strong>Docker</strong> Containerization</div>
-                                <div class="skill-item"><strong>Linux</strong> (Ubuntu/Debian)</div>
-                            </div>
+            <div class="hero-content container">
+                <div class="status-tag">SYSTEMS LEAD & ENGINEER</div>
+                <h1 class="name-title">AIDEN WARE BOSANKO</h1>
+                <div class="sub-title">TEXAS A&M UNIVERSITY // B.S. MECHANICAL ENGINEERING</div>
+                
+                <div class="bio-text">
+                    <p>Engineering high-stakes hardware, propulsion elements, and autonomous systems. Blending computational fluid dynamics with <span>hands-on fabrication</span> to bridge the gap between simulation and physical reality.</p>
+                    <p>Practical experience spanning full-cycle engineering workflows—from developing Python DAQ pipelines and 6-DOF flight trajectory engines, to managing composite UAV fabrication and diagnosing complex mechanical failures in ICE powertrains.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- DOSSIERS (THE PAYLOAD) -->
+        <section id="dossiers" class="payload-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>TECHNICAL DOSSIERS</h2>
+                    <span class="clearance">CLEARANCE: PUBLIC</span>
+                </div>
+                
+                <div class="doc-grid">
+                    <!-- RESUME CARD -->
+                    <a href="assets/resume.pdf" target="_blank" class="doc-card">
+                        <div>
+                            <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
+                            <h3 class="doc-title">PROFESSIONAL RESUME</h3>
+                            <p class="doc-desc">Overview of education, technical skills, and engineering field experience at CPS Energy and systems integration at Texas A&M.</p>
                         </div>
-                        <div class="skill-block">
-                            <span class="skill-title">DESIGN & BUILD</span>
-                            <div class="skill-list">
-                                <div class="skill-item"><strong>SolidWorks</strong> (CSWA Prep)</div>
-                                <div class="skill-item"><strong>AutoCAD</strong> Architecture</div>
-                                <div class="skill-item"><strong>Altium</strong> & KiCad</div>
-                                <div class="skill-item"><strong>Composite</strong> Fabrication</div>
-                                <div class="skill-item"><strong>Powertrain</strong> Diagnostics</div>
-                            </div>
+                        <div class="btn-download">VIEW RESUME ↗</div>
+                    </a>
+
+                    <!-- PORTFOLIO CARD -->
+                    <a href="assets/portfolio.pdf" target="_blank" class="doc-card">
+                        <div>
+                            <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
+                            <h3 class="doc-title">PROJECT PORTFOLIO</h3>
+                            <p class="doc-desc">Comprehensive visual breakdown of active builds, including CAD models, DAQ pipeline architecture, and physical hardware assembly.</p>
                         </div>
-                        <div class="skill-block">
-                            <span class="skill-title">ANALYSIS & THEORY</span>
-                            <div class="skill-list">
-                                <div class="skill-item"><strong>Fluid Mechanics</strong> / Hydraulics</div>
-                                <div class="skill-item"><strong>6-DOF</strong> Kinematics</div>
-                                <div class="skill-item"><strong>Aerodynamic</strong> Stability</div>
-                                <div class="skill-item"><strong>GD&T</strong> Tolerancing Basics</div>
-                                <div class="skill-item"><strong>P&ID</strong> Interpretation</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
+                        <div class="btn-download">VIEW PORTFOLIO ↗</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- IMPACT & CONTACT -->
+        <footer class="footer-section container">
+            <div class="footer-grid">
+                
+                <!-- IMPACT TIE-UPS -->
+                <div>
+                    <h2 style="font-size: 24px; margin-bottom: 30px; letter-spacing: -0.5px;">CORE CAPABILITIES</h2>
+                    <ul class="impact-list">
+                        <li class="impact-item">
+                            <div class="impact-title">SYSTEMS ARCHITECTURE</div>
+                            <div class="impact-desc">Integrating fluid mechanics, thermodynamics, and electrical routing into cohesive, testable assemblies.</div>
+                        </li>
+                        <li class="impact-item">
+                            <div class="impact-title">DATA ACQUISITION & CONTROL</div>
+                            <div class="impact-desc">Deploying Python, C++, and MATLAB to extract real-time telemetry from physical hardware environments.</div>
+                        </li>
+                        <li class="impact-item">
+                            <div class="impact-title">HARDWARE FABRICATION</div>
+                            <div class="impact-desc">Translating SolidWorks CAD models into functional prototypes via 3D printing, composite layups, and machining.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CONTACT LINKS -->
+                <div class="contact-links">
+                    <a href="https://www.linkedin.com/in/abosanko" target="_blank">LINKEDIN ↗</a>
+                    <a href="https://github.com/PimpDaddyDev" target="_blank">GITHUB ↗</a>
+                    <a href="mailto:aidenbosanko@gmail.com">EMAIL ↗</a>
+                </div>
+
+            </div>
+        </footer>
+
     </div>
 
-    <!-- THE PAYLOAD SECTION -->
-    <div id="dossiers" class="dossier-section">
-        <div class="container">
-            <div class="dossier-header">
-                <h2 class="dossier-title">TECHNICAL DOSSIERS</h2>
-                <span class="clearance">CLEARANCE: PUBLIC</span>
-            </div>
+    <!-- JAVASCRIPT FOR RANDOM HEADSHOT / OUTREACH BACKGROUND SELECTOR -->
+    <script>
+        const photos = [
+            'assets/cps-hardhat.jpg',
+            'assets/cat-rig.jpg',
+            'assets/cps-group.jpg',
+            'assets/award.jpg',
+            'assets/aggies-invent.jpg',
+            'assets/stem-plaque.jpg',
+            'assets/presenting.jpg',
+            'assets/scholarship.jpg'
+        ];
 
-            <div class="docs-grid">
-                <!-- PORTFOLIO PDF -->
-                <a href="PASTE_YOUR_PORTFOLIO_PDF_LINK_HERE" target="_blank" class="payload-card">
-                    <div>
-                        <span class="p-meta">FILE 01 // VISUAL EVIDENCE</span>
-                        <h3 class="p-title">PROJECT PORTFOLIO</h3>
-                        <p class="p-desc">Comprehensive visual breakdown of active builds, including CAD models, DAQ pipeline architecture, and physical hardware assembly.</p>
-                    </div>
-                    <div class="btn-download">ACCESS PORTFOLIO ↗</div>
-                </a>
+        // Pick a random index from the array on page load
+        const randomIndex = Math.floor(Math.random() * photos.length);
+        const selectedPhoto = photos[randomIndex];
 
-                <!-- RESUME PDF -->
-                <a href="PASTE_YOUR_RESUME_PDF_LINK_HERE" target="_blank" class="payload-card">
-                    <div>
-                        <span class="p-meta">FILE 02 // 1-PAGE SUMMARY</span>
-                        <h3 class="p-title">PROFESSIONAL RESUME</h3>
-                        <p class="p-desc">Standard one-page overview of education, technical skills, and engineering experience at CPS Energy and Texas A&M.</p>
-                    </div>
-                    <div class="btn-download">ACCESS RESUME ↗</div>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="container">
-        <div class="footer-left">AIDEN WARE BOSANKO</div>
-        <div class="footer-right">
-            <a href="https://www.linkedin.com/in/abosanko" target="_blank">LINKEDIN</a>
-            <a href="https://github.com/PimpDaddyDev" target="_blank">GITHUB</a>
-            <a href="mailto:aidenbosanko@gmail.com">EMAIL</a>
-        </div>
-    </footer>
-
-</div>
+        // Apply it to the hero background element
+        document.getElementById('heroBg').style.backgroundImage = `url('${selectedPhoto}')`;
+    </script>
 
 </body>
 </html>
