@@ -39,6 +39,7 @@
         }
 
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; margin: 0; }
+        a { text-decoration: none; }
         
         /* =========================================
            NAV BAR
@@ -65,7 +66,7 @@
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
-           HERO SECTION (COMPACT SPLIT + ACTIVE SLIDESHOW + VIGNETTE)
+           HERO SECTION (COMPACT SPLIT + CONTAINED SLIDESHOW WITH SIDE BARS)
            ========================================= */
         .hero-section {
             position: relative;
@@ -77,23 +78,23 @@
             background-color: var(--pure-black);
         }
 
-        /* DYNAMIC BACKGROUND CONTAINER */
+        /* CONTAINED SLIDESHOW BACKGROUND WITH SIDE BARS */
+        .hero-bg-container {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; overflow: hidden; display: flex; justify-content: center; align-items: center;
+            background-color: #050505;
+        }
         .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0; overflow: hidden; background: var(--pure-black);
+            width: 85%; height: 100%; position: absolute;
             background-size: cover; background-position: center;
-            filter: grayscale(30%) contrast(110%);
+            filter: grayscale(25%) contrast(110%);
+            transition: opacity 1s ease-in-out;
         }
-        .hero-overlay {
+        /* SIDE BARS / FADE GRADIENTS FOR MONITORS & TVS */
+        .hero-side-bars {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1;
-            background: linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.88) 55%, rgba(0,0,0,0.75) 100%);
-        }
-        /* CINEMATIC VIGNETTE EDGES */
-        .hero-vignette {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 2; pointer-events: none;
-            box-shadow: inset 0 0 100px rgba(0,0,0,0.95);
+            z-index: 1; pointer-events: none;
+            background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,0.98) 100%);
         }
 
         /* TWO-COLUMN GRID TO HOLD TEXT AND HEADSHOT */
@@ -102,6 +103,8 @@
             grid-template-columns: 1.25fr 0.75fr;
             gap: 50px;
             align-items: center;
+            position: relative;
+            z-index: 3;
         }
 
         .hero-content {
@@ -130,40 +133,46 @@
             text-transform: uppercase;
         }
 
-        /* COMPACT SKILLS SUB-BAR */
-        .skills-bar {
+        /* BULLET LIST SKILLS UNDER BIO / SUB-TITLE */
+        .skills-bullet-list {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 18px;
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 15px;
+            gap: 8px 15px;
+            list-style: none;
+            padding: 0;
         }
-        .skill-chip {
-            font-family: 'Space Mono', monospace;
-            font-size: 10px;
-            font-weight: 700;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            padding: 3px 7px;
-            border: 1px solid rgba(255,255,255,0.2);
-            text-transform: uppercase;
+        .skills-bullet-list li {
+            display: flex;
+            align-items: center;
+            color: #ccc;
+        }
+        .skills-bullet-list li::before {
+            content: "•";
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin-right: 6px;
         }
 
         .bio-text {
-            font-size: 145px; color: #ccc; line-height: 1.6;
+            font-size: 15px; color: #ccc; line-height: 1.6;
         }
-        .bio-text { font-size: 15px; }
-        .bio-text p { margin-bottom: 10px; font-size: inherit; color: inherit; }
+        .bio-text p { margin-bottom: 12px; font-size: inherit; color: inherit; }
         .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
+        .bio-text a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); }
 
         /* HEADSHOT CONTAINER ON RIGHT */
         .hero-visual {
             width: 100%;
-            max-width: 300px;
+            max-width: 280px;
             aspect-ratio: 4/5;
-            background: #222;
+            background: #111;
             border: 2px solid var(--text-white);
             overflow: hidden;
-            box-shadow: 10px 10px 0px rgba(255,255,255,0.2);
+            box-shadow: 10px 10px 0px rgba(255,255,255,0.15);
             margin: 0 auto;
         }
         .hero-visual img {
@@ -215,11 +224,11 @@
         .doc-card:hover .btn-download { background: var(--accent-blue); }
 
         /* =========================================
-           MILESTONES & RECOGNITION (VISUAL GRID)
+           MILESTONES & RECOGNITION (VISUAL GRID WITH COHESIVE PACING)
            ========================================= */
         .milestones-section {
             padding: 70px 0;
-            background: var(--pure-black);
+            background: var(--off-black);
             border-bottom: 2px solid var(--border-color);
         }
 
@@ -231,7 +240,7 @@
         }
 
         .milestone-card {
-            background: var(--off-black);
+            background: var(--card-black);
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
@@ -273,7 +282,7 @@
            ========================================= */
         .footer-section {
             padding: 40px 0 60px;
-            background: var(--card-black);
+            background: var(--pure-black);
             border-top: 1px solid var(--border-color);
         }
 
@@ -301,7 +310,7 @@
 
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero-visual { max-width: 260px; margin: 0 auto; }
+            .hero-visual { max-width: 240px; margin: 0 auto; }
             .doc-grid { grid-template-columns: 1fr; }
             .milestones-grid { grid-template-columns: 1fr; }
             .footer-flex { flex-direction: column; align-items: flex-start; gap: 15px; }
@@ -325,11 +334,12 @@
             </div>
         </nav>
 
-        <!-- HERO & ABOUT (COMPACT SPLIT + ACTIVE SLIDESHOW) -->
+        <!-- HERO & ABOUT (COMPACT SPLIT + CONTAINED SLIDESHOW) -->
         <header class="hero-section">
-            <div id="heroBg" class="hero-bg"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-vignette"></div>
+            <div class="hero-bg-container">
+                <div id="heroBg" class="hero-bg"></div>
+            </div>
+            <div class="hero-side-bars"></div>
 
             <div class="container hero-grid">
                 <div class="hero-content">
@@ -337,19 +347,19 @@
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
                     
-                    <!-- SKILLS BRIEF BAR -->
-                    <div class="skills-bar">
-                        <span class="skill-chip">Python</span>
-                        <span class="skill-chip">SolidWorks</span>
-                        <span class="skill-chip">MATLAB</span>
-                        <span class="skill-chip">C++</span>
-                        <span class="skill-chip">FEA / CFD</span>
-                        <span class="skill-chip">Linux / Docker</span>
-                        <span class="skill-chip">DAQ Integration</span>
-                    </div>
+                    <!-- BULLET SKILLS LIST UNDER SUBTITLE -->
+                    <ul class="skills-bullet-list">
+                        <li>Python (NumPy / Pandas)</li>
+                        <li>SolidWorks CAD & Simulation</li>
+                        <li>MATLAB & Simulink</li>
+                        <li>C++ & Embedded Systems</li>
+                        <li>FEA & Computational Fluid Dynamics</li>
+                        <li>Linux Server & Docker Infrastructure</li>
+                        <li>Data Acquisition (DAQ) Pipelines</li>
+                    </ul>
 
                     <div class="bio-text">
-                        <p>I'm a mechanical engineering student at <span>Texas A&M University</span> focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
+                        <p>I'm a mechanical engineering student at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a> focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
                         <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
                     </div>
                 </div>
@@ -374,7 +384,7 @@
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
                             <h3 class="doc-title">PROFESSIONAL RESUME</h3>
-                            <p class="doc-desc">Overview of education, technical competencies, and corporate engineering field experience at CPS Energy.</p>
+                            <p class="doc-desc">Overview of education, technical competencies, and engineering field experience at CPS Energy.</p>
                         </div>
                         <span class="btn-download">VIEW & DOWNLOAD RESUME ↗</span>
                     </a>
@@ -384,7 +394,7 @@
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
                             <h3 class="doc-title">PROJECT PORTFOLIO</h3>
-                            <p class="doc-desc">Detailed visual documentation of hardware builds, CAD assemblies, and custom DAQ testing infrastructure.</p>
+                            <p class="doc-desc">Detailed visual documentation of mechanical builds, CAD assemblies, and custom testing infrastructure.</p>
                         </div>
                         <span class="btn-download">VIEW & DOWNLOAD PORTFOLIO ↗</span>
                     </a>
@@ -392,7 +402,7 @@
             </div>
         </section>
 
-        <!-- MILESTONES & RECOGNITION (VISUAL CARD GRID) -->
+        <!-- MILESTONES & RECOGNITION (VISUAL GRID) -->
         <section id="milestones" class="milestones-section">
             <div class="container">
                 <div class="section-header" style="color: var(--text-white); border-bottom: 2px solid var(--border-color);">
@@ -447,7 +457,7 @@
 
     </div>
 
-    <!-- JAVASCRIPT FOR ACTIVE AUTOMATED BACKGROUND SLIDESHOW LOOP -->
+    <!-- JAVASCRIPT FOR CONTAINED AUTOMATED BACKGROUND SLIDESHOW LOOP -->
     <script>
         const photos = [
             'assets/cps-hardhat.jpeg',
