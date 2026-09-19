@@ -71,7 +71,7 @@
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            min-height: 60vh; 
+            min-height: 70vh; 
             padding: 110px 0 40px; 
             background-color: var(--pure-black);
         }
@@ -135,17 +135,11 @@
         }
         .bio-text p { margin-bottom: 15px; }
 
-        /* INTERACTIVE BLUE HIGHLIGHTS IN BIO */
+        /* STATIC BLUE HIGHLIGHTS IN BIO (NO HOVER) */
         .blue-highlight {
             color: var(--accent-blue);
             border-bottom: 2px solid var(--accent-blue);
             font-weight: 600;
-            padding: 0 2px;
-            transition: all 0.2s ease-in-out;
-        }
-        .blue-highlight:hover {
-            background-color: var(--accent-blue);
-            color: var(--text-white);
         }
 
         /* CLEAN WHITE SKILLS LIST */
@@ -195,6 +189,7 @@
             display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
         }
 
+        /* CARD HOVER WITH BLUE ACCENT BORDER & SHADOW */
         .doc-card, .milestone-card {
             background: var(--text-white); border: 2px solid var(--pure-black);
             display: flex; flex-direction: column;
@@ -204,7 +199,8 @@
         .doc-card { padding: 30px; }
         .doc-card:hover, .milestone-card:hover {
             transform: translateY(-3px);
-            box-shadow: 10px 10px 0px var(--pure-black);
+            border-color: var(--accent-blue);
+            box-shadow: 10px 10px 0px var(--accent-blue);
         }
 
         .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 10px; display: block; font-weight: 700; }
@@ -337,7 +333,7 @@
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
 
-                    <!-- PRO BIO WITH INTERACTIVE BLUE HIGHLIGHTS -->
+                    <!-- PRO BIO WITH STATIC BLUE HIGHLIGHTS -->
                     <div class="bio-text">
                         <p>I am a mechanical engineer specializing in <span class="blue-highlight">systems integration</span>, propulsion, and utility-scale power generation. My experience spans from leading avionics architecture for Texas A&M's Vertical Flight Design team to executing plant-wide <span class="blue-highlight">SCADA diagnostics</span> and <span class="blue-highlight">pressure relief engineering</span> for CPS Energy.</p>
                         <p>I build <span class="blue-highlight">fault-tolerant systems</span> that bridge the gap between rigorous computational simulation and physical hardware deployment.</p>
