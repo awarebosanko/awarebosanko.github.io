@@ -41,7 +41,7 @@
         a { text-decoration: none; }
         
         /* =========================================
-           NAV BAR (HOVER RESTORED)
+           NAV BAR
            ========================================= */
         .mega-header {
             background-color: var(--dossier-grey);
@@ -61,7 +61,7 @@
             text-transform: uppercase; font-size: 13px; margin-left: 35px; font-weight: 700; 
             letter-spacing: 1px; transition: 0.3s; 
         }
-        .nav-links a:hover { color: var(--accent-blue); }
+        .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
            HERO SECTION
@@ -129,20 +129,26 @@
             text-transform: uppercase;
         }
 
-        /* PRO BIO TEXT WITH BLUE HIGHLIGHTS */
+        /* PRO BIO TEXT */
         .bio-text {
-            font-size: 15px; color: #ccc; line-height: 1.6;
+            font-size: 15px; color: #ccc; line-height: 1.7;
         }
-        .bio-text p { margin-bottom: 12px; }
-        
+        .bio-text p { margin-bottom: 15px; }
+
+        /* INTERACTIVE BLUE HIGHLIGHTS IN BIO */
         .blue-highlight {
             color: var(--accent-blue);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            font-weight: 700;
+            border-bottom: 2px solid var(--accent-blue);
+            font-weight: 600;
+            padding: 0 2px;
+            transition: all 0.2s ease-in-out;
+        }
+        .blue-highlight:hover {
+            background-color: var(--accent-blue);
+            color: var(--text-white);
         }
 
-        /* CLEANED UP SKILLS LIST (NO UNDERLINES) */
+        /* CLEAN WHITE SKILLS LIST */
         .skills-bullet-list {
             margin-top: 10px;
             padding-left: 18px;
@@ -262,7 +268,7 @@
         }
 
         /* =========================================
-           FOOTER (HOVER RESTORED)
+           FOOTER 
            ========================================= */
         .footer-section {
             padding: 50px 0 80px;
@@ -331,13 +337,13 @@
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
 
-                    <!-- PRO BIO WITH BLUE HIGHLIGHTS -->
+                    <!-- PRO BIO WITH INTERACTIVE BLUE HIGHLIGHTS -->
                     <div class="bio-text">
-                        <p>I am a mechanical engineer specializing in <span class="blue-highlight">systems integration</span>, propulsion, and utility-scale power generation. My experience spans from leading avionics architecture for Texas A&M's Vertical Flight Design team to executing plant-wide <span class="blue-highlight">SCADA diagnostics</span> and pressure relief engineering for CPS Energy.</p>
-                        <p>I build fault-tolerant systems that bridge the gap between rigorous computational simulation and physical hardware deployment.</p>
+                        <p>I am a mechanical engineer specializing in <span class="blue-highlight">systems integration</span>, propulsion, and utility-scale power generation. My experience spans from leading avionics architecture for Texas A&M's Vertical Flight Design team to executing plant-wide <span class="blue-highlight">SCADA diagnostics</span> and <span class="blue-highlight">pressure relief engineering</span> for CPS Energy.</p>
+                        <p>I build <span class="blue-highlight">fault-tolerant systems</span> that bridge the gap between rigorous computational simulation and physical hardware deployment.</p>
                     </div>
 
-                    <!-- SKILLS LIST (NO UNDERLINES) -->
+                    <!-- CLEAN WHITE SKILLS LIST -->
                     <ul class="skills-bullet-list">
                         <li><strong>Core Competencies:</strong> Systems Integration, SCADA Diagnostics, P&IDs, Root Cause Analysis</li>
                         <li><strong>Design & Simulation:</strong> SolidWorks (CFD & Flow), Altium Designer, KiCad, eCalc</li>
