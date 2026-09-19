@@ -13,10 +13,11 @@
         :root {
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
-            --off-black: #080808;
-            --border-color: #222222;
+            --off-black: #121212;
+            --card-black: #0a0a0a;
+            --border-color: #262626;
             --text-white: #ffffff;
-            --text-dim: #a0a0a0;
+            --text-dim: #999999;
             --accent-blue: #005A9C; /* Lockheed Blue Accent */
         }
 
@@ -43,12 +44,13 @@
            NAV BAR
            ========================================= */
         .mega-header {
-            background-color: transparent;
-            padding: 30px 0; 
+            background-color: var(--pure-black);
+            padding: 25px 0; 
             position: absolute;
             width: 100%;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid var(--border-color);
         }
         .mega-header .container {
             display: flex; justify-content: space-between; align-items: center;
@@ -70,8 +72,9 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
             padding: 140px 0 100px;
+            background-color: var(--pure-black);
         }
 
         /* DYNAMIC BACKGROUND CONTAINER */
@@ -79,12 +82,12 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0; overflow: hidden; background: var(--pure-black);
             background-size: cover; background-position: center;
-            filter: grayscale(30%) contrast(110%);
+            filter: grayscale(35%) contrast(110%);
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
-            background: linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.88) 55%, rgba(0,0,0,0.75) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.7) 100%);
         }
 
         /* TWO-COLUMN GRID TO HOLD TEXT AND HEADSHOT */
@@ -133,7 +136,7 @@
             background: #111;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.6);
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.8);
         }
         .hero-visual img {
             width: 100%; height: 100%; object-fit: cover;
@@ -141,16 +144,16 @@
         }
 
         /* =========================================
-           PAYLOAD SECTION (DOSSIERS)
+           PAYLOAD SECTION (DOSSIERS WITH LIVE PDF PREVIEWS)
            ========================================= */
         .payload-section {
             padding: 100px 0;
             background: var(--off-black);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
         }
 
         .section-header {
-            font-size: 32px; letter-spacing: -0.5px; margin-bottom: 40px;
+            font-size: 36px; letter-spacing: -0.5px; margin-bottom: 40px;
             border-bottom: 1px solid var(--border-color); padding-bottom: 15px;
         }
 
@@ -159,31 +162,55 @@
         }
 
         .doc-card {
-            background: var(--pure-black); border: 1px solid var(--border-color);
-            padding: 40px; display: flex; flex-direction: column; justify-content: space-between;
-            text-decoration: none; color: inherit; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; overflow: hidden; min-height: 220px;
+            background: var(--card-black); border: 1px solid var(--border-color);
+            padding: 35px; display: flex; flex-direction: column; justify-content: space-between;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
         }
         .doc-card:hover {
-            border-color: var(--accent-blue); transform: translateY(-3px);
+            border-color: var(--accent-blue);
             box-shadow: 0 10px 30px rgba(0, 90, 156, 0.15);
         }
-        .doc-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--accent-blue); transform: scaleY(0); transform-origin: bottom; transition: 0.3s;
-        }
-        .doc-card:hover::before { transform: scaleY(1); }
 
-        .doc-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); margin-bottom: 15px; display: block; }
-        .doc-title { font-size: 32px; margin-bottom: 12px; line-height: 1.1; letter-spacing: -1px; }
-        .doc-desc { font-size: 14px; color: #888; margin-bottom: 30px; line-height: 1.6; }
+        .doc-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); margin-bottom: 12px; display: block; }
+        .doc-title { font-size: 32px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; }
+        .doc-desc { font-size: 14px; color: #888; margin-bottom: 25px; line-height: 1.6; }
 
-        .btn-download {
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
-            letter-spacing: 1px; text-transform: uppercase; color: var(--pure-black);
-            background: var(--dossier-grey); padding: 15px; text-align: center; transition: 0.3s;
+        /* EMBEDDED PDF PREVIEW FRAME */
+        .pdf-preview-box {
+            width: 100%;
+            height: 350px;
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+            overflow: hidden;
         }
-        .doc-card:hover .btn-download { background: var(--accent-blue); color: var(--text-white); }
+        .pdf-preview-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .doc-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-action {
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
+            letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+            padding: 15px; text-align: center; transition: 0.3s; display: block;
+        }
+        .btn-secondary {
+            background: transparent; color: var(--text-white); border: 1px solid var(--border-color);
+        }
+        .btn-secondary:hover { border-color: var(--text-white); background: #1a1a1a; }
+        
+        .btn-primary {
+            background: var(--dossier-grey); color: var(--pure-black); border: 1px solid var(--dossier-grey);
+        }
+        .btn-primary:hover { background: var(--accent-blue); color: var(--text-white); border-color: var(--accent-blue); }
 
         /* =========================================
            MILESTONES & RECOGNITION (VISUAL GRID)
@@ -191,7 +218,7 @@
         .milestones-section {
             padding: 100px 0;
             background: var(--pure-black);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
         }
 
         .milestones-grid {
@@ -218,7 +245,7 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            filter: grayscale(20%) contrast(110%);
+            filter: grayscale(15%) contrast(110%);
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -319,7 +346,7 @@
             </div>
         </header>
 
-        <!-- DOSSIERS (THE PAYLOAD) -->
+        <!-- DOSSIERS (THE PAYLOAD WITH LIVE PDF PREVIEWS) -->
         <section id="dossiers" class="payload-section">
             <div class="container">
                 <div class="section-header">
@@ -327,25 +354,41 @@
                 </div>
                 
                 <div class="doc-grid">
-                    <!-- RESUME CARD -->
-                    <a href="assets/resume.pdf" target="_blank" class="doc-card">
+                    <!-- RESUME CARD WITH PREVIEW -->
+                    <div class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
                             <h3 class="doc-title">PROFESSIONAL RESUME</h3>
                             <p class="doc-desc">Overview of education, technical competencies, and corporate engineering field experience at CPS Energy.</p>
+                            
+                            <div class="pdf-preview-box">
+                                <iframe src="assets/resume.pdf#view=FitH" title="Resume Preview"></iframe>
+                            </div>
                         </div>
-                        <div class="btn-download">VIEW RESUME ↗</div>
-                    </a>
 
-                    <!-- PORTFOLIO CARD -->
-                    <a href="assets/portfolio.pdf" target="_blank" class="doc-card">
+                        <div class="doc-actions">
+                            <a href="assets/resume.pdf" target="_blank" class="btn-action btn-secondary">EXPAND ↗</a>
+                            <a href="assets/resume.pdf" download class="btn-action btn-primary">DOWNLOAD ⬇</a>
+                        </div>
+                    </div>
+
+                    <!-- PORTFOLIO CARD WITH PREVIEW -->
+                    <div class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
                             <h3 class="doc-title">PROJECT PORTFOLIO</h3>
                             <p class="doc-desc">Detailed visual documentation of hardware builds, CAD assemblies, and custom DAQ testing infrastructure.</p>
+                            
+                            <div class="pdf-preview-box">
+                                <iframe src="assets/portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
+                            </div>
                         </div>
-                        <div class="btn-download">VIEW PORTFOLIO ↗</div>
-                    </a>
+
+                        <div class="doc-actions">
+                            <a href="assets/portfolio.pdf" target="_blank" class="btn-action btn-secondary">EXPAND ↗</a>
+                            <a href="assets/portfolio.pdf" download class="btn-action btn-primary">DOWNLOAD ⬇</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -364,7 +407,7 @@
                         <div class="milestone-body">
                             <span class="milestone-tag">ACADEMIC AMBITION</span>
                             <h3 class="milestone-title">Cleary Zimmermann Scholarship</h3>
-                            <p class="milestone-desc">Awarded a competitive engineering scholarship recognizing technical drive and academic excellence across Texas higher education[cite: 76].</p>
+                            <p class="milestone-desc">Awarded a competitive engineering scholarship recognizing technical drive and academic excellence across Texas higher education.</p>
                         </div>
                     </div>
 
@@ -384,7 +427,7 @@
                         <div class="milestone-body">
                             <span class="milestone-tag">HONORS & TRANSFER</span>
                             <h3 class="milestone-title">Associate of Science (Honors)</h3>
-                            <p class="milestone-desc">Completed Associate of Science in Engineering with Honors at Northeast Lakeview College before transitioning to Texas A&M[cite: 77].</p>
+                            <p class="milestone-desc">Completed Associate of Science in Engineering with Honors at Northeast Lakeview College before transitioning to Texas A&M.</p>
                         </div>
                     </div>
                 </div>
