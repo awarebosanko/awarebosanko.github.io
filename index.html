@@ -13,9 +13,8 @@
         :root {
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
-            --off-black: #121212;
-            --card-black: #0a0a0a;
-            --border-color: #262626;
+            --off-black: #0a0a0a;
+            --border-color: #222222;
             --text-white: #ffffff;
             --text-dim: #999999;
             --accent-blue: #005A9C; /* Lockheed Blue Accent */
@@ -44,25 +43,25 @@
            NAV BAR
            ========================================= */
         .mega-header {
-            background-color: var(--pure-black);
-            padding: 25px 0; 
+            background-color: var(--dossier-grey);
+            padding: 20px 0; 
             position: absolute;
             width: 100%;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--pure-black);
         }
         .mega-header .container {
             display: flex; justify-content: space-between; align-items: center;
         }
-        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 1px; color: var(--text-white); text-decoration: none;}
+        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 1px; color: var(--pure-black); text-decoration: none;}
         .nav-links a { 
-            font-family: 'Inter', sans-serif; color: var(--text-white); 
+            font-family: 'Inter', sans-serif; color: var(--pure-black); 
             text-decoration: none; text-transform: uppercase; 
             font-size: 14px; margin-left: 45px; font-weight: 700; 
             letter-spacing: 1px; transition: 0.3s; 
         }
-        .nav-links a:hover { color: var(--accent-blue); }
+        .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
            HERO SECTION (SPLIT LAYOUT + RANDOM BG)
@@ -72,7 +71,7 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--pure-black);
             padding: 140px 0 100px;
             background-color: var(--pure-black);
         }
@@ -82,7 +81,7 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0; overflow: hidden; background: var(--pure-black);
             background-size: cover; background-position: center;
-            filter: grayscale(35%) contrast(110%);
+            filter: grayscale(30%) contrast(110%);
         }
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -115,11 +114,12 @@
         .name-title {
             font-size: clamp(50px, 7vw, 85px);
             line-height: 1; letter-spacing: -2px; margin-bottom: 15px;
+            color: var(--text-white);
         }
 
         .sub-title {
             font-family: 'Space Mono', monospace; font-size: 13px;
-            color: var(--text-dim); letter-spacing: 1px; margin-bottom: 25px;
+            color: #ccc; letter-spacing: 1px; margin-bottom: 25px;
             text-transform: uppercase;
         }
 
@@ -134,9 +134,9 @@
             width: 100%;
             aspect-ratio: 4/5;
             background: #111;
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--text-white);
             overflow: hidden;
-            box-shadow: 15px 15px 0px rgba(0,0,0,0.8);
+            box-shadow: 15px 15px 0px rgba(255,255,255,0.2);
         }
         .hero-visual img {
             width: 100%; height: 100%; object-fit: cover;
@@ -144,17 +144,19 @@
         }
 
         /* =========================================
-           PAYLOAD SECTION (DOSSIERS WITH LIVE PDF PREVIEWS)
+           PAYLOAD SECTION (DOSSIERS)
            ========================================= */
         .payload-section {
             padding: 100px 0;
-            background: var(--off-black);
-            border-bottom: 2px solid var(--border-color);
+            background: var(--dossier-grey);
+            color: var(--pure-black);
+            border-bottom: 2px solid var(--pure-black);
         }
 
         .section-header {
-            font-size: 36px; letter-spacing: -0.5px; margin-bottom: 40px;
-            border-bottom: 1px solid var(--border-color); padding-bottom: 15px;
+            font-size: 40px; letter-spacing: -1px; margin-bottom: 40px;
+            border-bottom: 2px solid var(--pure-black); padding-bottom: 15px;
+            color: var(--pure-black);
         }
 
         .doc-grid {
@@ -162,55 +164,27 @@
         }
 
         .doc-card {
-            background: var(--card-black); border: 1px solid var(--border-color);
-            padding: 35px; display: flex; flex-direction: column; justify-content: space-between;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; overflow: hidden;
+            background: var(--text-white); border: 2px solid var(--pure-black);
+            padding: 40px; display: flex; flex-direction: column; justify-content: space-between;
+            text-decoration: none; color: var(--pure-black); transition: 0.3s;
+            box-shadow: 8px 8px 0px var(--pure-black);
         }
         .doc-card:hover {
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 30px rgba(0, 90, 156, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 12px 12px 0px var(--pure-black);
         }
 
-        .doc-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--text-dim); margin-bottom: 12px; display: block; }
-        .doc-title { font-size: 32px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; }
-        .doc-desc { font-size: 14px; color: #888; margin-bottom: 25px; line-height: 1.6; }
+        .doc-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: #666; margin-bottom: 15px; display: block; font-weight: 700; }
+        .doc-title { font-size: 36px; margin-bottom: 15px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
+        .doc-desc { font-size: 15px; color: #444; margin-bottom: 40px; line-height: 1.6; }
 
-        /* EMBEDDED PDF PREVIEW FRAME */
-        .pdf-preview-box {
-            width: 100%;
-            height: 350px;
-            background: #1a1a1a;
-            border: 1px solid var(--border-color);
-            margin-bottom: 25px;
-            overflow: hidden;
+        .btn-download {
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
+            letter-spacing: 1px; text-transform: uppercase; color: var(--text-white);
+            background: var(--pure-black); padding: 18px; text-align: center; transition: 0.3s;
+            display: block; text-decoration: none;
         }
-        .pdf-preview-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .doc-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .btn-action {
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
-            letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
-            padding: 15px; text-align: center; transition: 0.3s; display: block;
-        }
-        .btn-secondary {
-            background: transparent; color: var(--text-white); border: 1px solid var(--border-color);
-        }
-        .btn-secondary:hover { border-color: var(--text-white); background: #1a1a1a; }
-        
-        .btn-primary {
-            background: var(--dossier-grey); color: var(--pure-black); border: 1px solid var(--dossier-grey);
-        }
-        .btn-primary:hover { background: var(--accent-blue); color: var(--text-white); border-color: var(--accent-blue); }
+        .doc-card:hover .btn-download { background: var(--accent-blue); }
 
         /* =========================================
            MILESTONES & RECOGNITION (VISUAL GRID)
@@ -243,7 +217,7 @@
 
         .milestone-img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             filter: grayscale(15%) contrast(110%);
             border-bottom: 1px solid var(--border-color);
@@ -317,7 +291,7 @@
                 <div class="nav-links">
                     <a href="#dossiers">Dossiers</a>
                     <a href="#milestones">Recognition</a>
-                    <a href="mailto:aidenbosanko@gmail.com">Contact</a>
+                    <a href="https://github.com/awarebosanko" target="_blank">GitHub ↗</a>
                 </div>
             </div>
         </nav>
@@ -346,49 +320,33 @@
             </div>
         </header>
 
-        <!-- DOSSIERS (THE PAYLOAD WITH LIVE PDF PREVIEWS) -->
+        <!-- DOSSIERS (THE PAYLOAD) -->
         <section id="dossiers" class="payload-section">
-            <div class="container">
-                <div class="section-header">
+            <div class="container" style="max-width: 1350px;">
+                <div class="section-header" style="border-bottom: 2px solid var(--pure-black); color: var(--pure-black);">
                     <h2>TECHNICAL DOSSIERS</h2>
                 </div>
                 
                 <div class="doc-grid">
-                    <!-- RESUME CARD WITH PREVIEW -->
-                    <div class="doc-card">
+                    <!-- RESUME CARD -->
+                    <a href="assets/resume.pdf" target="_blank" class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
                             <h3 class="doc-title">PROFESSIONAL RESUME</h3>
                             <p class="doc-desc">Overview of education, technical competencies, and corporate engineering field experience at CPS Energy.</p>
-                            
-                            <div class="pdf-preview-box">
-                                <iframe src="assets/resume.pdf#view=FitH" title="Resume Preview"></iframe>
-                            </div>
                         </div>
+                        <span class="btn-download">VIEW & DOWNLOAD RESUME ↗</span>
+                    </a>
 
-                        <div class="doc-actions">
-                            <a href="assets/resume.pdf" target="_blank" class="btn-action btn-secondary">EXPAND ↗</a>
-                            <a href="assets/resume.pdf" download class="btn-action btn-primary">DOWNLOAD ⬇</a>
-                        </div>
-                    </div>
-
-                    <!-- PORTFOLIO CARD WITH PREVIEW -->
-                    <div class="doc-card">
+                    <!-- PORTFOLIO CARD -->
+                    <a href="assets/portfolio.pdf" target="_blank" class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
                             <h3 class="doc-title">PROJECT PORTFOLIO</h3>
                             <p class="doc-desc">Detailed visual documentation of hardware builds, CAD assemblies, and custom DAQ testing infrastructure.</p>
-                            
-                            <div class="pdf-preview-box">
-                                <iframe src="assets/portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
-                            </div>
                         </div>
-
-                        <div class="doc-actions">
-                            <a href="assets/portfolio.pdf" target="_blank" class="btn-action btn-secondary">EXPAND ↗</a>
-                            <a href="assets/portfolio.pdf" download class="btn-action btn-primary">DOWNLOAD ⬇</a>
-                        </div>
-                    </div>
+                        <span class="btn-download">VIEW & DOWNLOAD PORTFOLIO ↗</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -396,7 +354,7 @@
         <!-- MILESTONES & RECOGNITION (VISUAL CARD GRID) -->
         <section id="milestones" class="milestones-section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header" style="color: var(--text-white);">
                     <h2>RECOGNITION & MILESTONES</h2>
                 </div>
 
@@ -440,7 +398,7 @@
                 <div class="footer-brand">AIDEN WARE BOSANKO</div>
                 <div class="footer-links">
                     <a href="https://www.linkedin.com/in/abosanko" target="_blank">LinkedIn ↗</a>
-                    <a href="https://github.com/PimpDaddyDev" target="_blank">GitHub ↗</a>
+                    <a href="https://github.com/awarebosanko" target="_blank">GitHub ↗</a>
                     <a href="mailto:aidenbosanko@gmail.com">Email ↗</a>
                 </div>
             </div>
@@ -448,17 +406,17 @@
 
     </div>
 
-    <!-- JAVASCRIPT FOR RANDOM HEADSHOT / OUTREACH BACKGROUND SELECTOR -->
+    <!-- JAVASCRIPT FOR RANDOM BACKGROUND PHOTO SELECTOR -->
     <script>
         const photos = [
-            'assets/cps-hardhat.jpg',
-            'assets/cat-rig.jpg',
-            'assets/cps-group.jpg',
-            'assets/award.jpg',
-            'assets/aggies-invent.jpg',
-            'assets/stem-plaque.jpg',
-            'assets/presenting.jpg',
-            'assets/scholarship.jpg'
+            'assets/cps-hardhat.jpeg',
+            'assets/CPS Big rig.jpeg',
+            'assets/Group Photo CPS.jpeg',
+            'assets/CPS AWARD.jpeg',
+            'assets/Aggies Invent thumbs up.jpeg',
+            'assets/STEM Club award.jpeg',
+            'assets/presenting meeting 1.jpeg',
+            'assets/Scholarship.jpeg'
         ];
 
         const randomIndex = Math.floor(Math.random() * photos.length);
