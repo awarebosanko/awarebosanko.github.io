@@ -41,7 +41,7 @@
         a { text-decoration: none; }
         
         /* =========================================
-           NAV BAR
+           NAV BAR (HOVER RESTORED)
            ========================================= */
         .mega-header {
             background-color: var(--dossier-grey);
@@ -61,7 +61,7 @@
             text-transform: uppercase; font-size: 13px; margin-left: 35px; font-weight: 700; 
             letter-spacing: 1px; transition: 0.3s; 
         }
-        .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
+        .nav-links a:hover { color: var(--accent-blue); }
 
         /* =========================================
            HERO SECTION
@@ -71,7 +71,7 @@
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            min-height: 70vh; 
+            min-height: 60vh; 
             padding: 110px 0 40px; 
             background-color: var(--pure-black);
         }
@@ -129,13 +129,20 @@
             text-transform: uppercase;
         }
 
-        /* PRO BIO TEXT */
+        /* PRO BIO TEXT WITH BLUE HIGHLIGHTS */
         .bio-text {
             font-size: 15px; color: #ccc; line-height: 1.6;
         }
         .bio-text p { margin-bottom: 12px; }
+        
+        .blue-highlight {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 700;
+        }
 
-        /* SKILLS LIST & BLUE HIGHLIGHTS */
+        /* CLEANED UP SKILLS LIST (NO UNDERLINES) */
         .skills-bullet-list {
             margin-top: 10px;
             padding-left: 18px;
@@ -146,13 +153,6 @@
         }
         .skills-bullet-list li { margin-bottom: 6px; }
         .skills-bullet-list li strong { color: #fff; }
-        
-        .blue-highlight {
-            color: var(--accent-blue);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            font-weight: 700;
-        }
 
         .hero-visual {
             width: 100%;
@@ -174,7 +174,7 @@
            ========================================= */
         .payload-section {
             padding: 90px 0 110px;
-            background: var(--dossier-grey); /* SOLID GREY BACKGROUND FOR BOTH SECTIONS */
+            background: var(--dossier-grey);
             color: var(--pure-black);
             border-bottom: 2px solid var(--pure-black);
         }
@@ -228,7 +228,7 @@
         }
         .btn-download:hover { background: var(--accent-blue); }
 
-        /* MILESTONES GRID (NOW SEAMLESSLY BLENDED) */
+        /* MILESTONES GRID */
         .milestones-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -262,7 +262,7 @@
         }
 
         /* =========================================
-           FOOTER 
+           FOOTER (HOVER RESTORED)
            ========================================= */
         .footer-section {
             padding: 50px 0 80px;
@@ -331,17 +331,17 @@
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
 
-                    <!-- HEAVY-HITTING PRO BIO -->
+                    <!-- PRO BIO WITH BLUE HIGHLIGHTS -->
                     <div class="bio-text">
-                        <p>I am a mechanical engineer specializing in systems integration, propulsion, and utility-scale power generation. My experience spans from leading avionics architecture for Texas A&M's Vertical Flight Design team to executing plant-wide SCADA diagnostics and pressure relief engineering for CPS Energy.</p>
+                        <p>I am a mechanical engineer specializing in <span class="blue-highlight">systems integration</span>, propulsion, and utility-scale power generation. My experience spans from leading avionics architecture for Texas A&M's Vertical Flight Design team to executing plant-wide <span class="blue-highlight">SCADA diagnostics</span> and pressure relief engineering for CPS Energy.</p>
                         <p>I build fault-tolerant systems that bridge the gap between rigorous computational simulation and physical hardware deployment.</p>
                     </div>
 
-                    <!-- BLUE HIGHLIGHT SKILLS LIST -->
+                    <!-- SKILLS LIST (NO UNDERLINES) -->
                     <ul class="skills-bullet-list">
-                        <li><strong>Core Competencies:</strong> <span class="blue-highlight">Systems Integration</span>, <span class="blue-highlight">SCADA Diagnostics</span>, P&IDs, Root Cause Analysis</li>
-                        <li><strong>Design & Simulation:</strong> <span class="blue-highlight">SolidWorks (CFD & Flow)</span>, Altium Designer, KiCad, eCalc</li>
-                        <li><strong>Hardware & Software:</strong> <span class="blue-highlight">DAQ Instrumentation</span>, ArduPilot, C/C++, Python, CNC Machining</li>
+                        <li><strong>Core Competencies:</strong> Systems Integration, SCADA Diagnostics, P&IDs, Root Cause Analysis</li>
+                        <li><strong>Design & Simulation:</strong> SolidWorks (CFD & Flow), Altium Designer, KiCad, eCalc</li>
+                        <li><strong>Hardware & Software:</strong> DAQ Instrumentation, ArduPilot, C/C++, Python, CNC Machining</li>
                     </ul>
                 </div>
 
@@ -362,7 +362,7 @@
                 </div>
                 
                 <div class="doc-grid">
-                    <!-- RESUME CARD (USES NEW NAMING CONVENTION) -->
+                    <!-- RESUME CARD (LOCKED FILE PATH) -->
                     <div class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
@@ -371,13 +371,13 @@
                             
                             <!-- PDF PREVIEW -->
                             <div class="pdf-preview-box">
-                                <iframe src="assets/aiden-bosanko-resume.pdf#view=FitH" title="Resume Preview"></iframe>
+                                <iframe src="assets/aiden-resume.pdf#view=FitH" title="Resume Preview"></iframe>
                             </div>
                         </div>
-                        <a href="assets/aiden-bosanko-resume.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
+                        <a href="assets/aiden-resume.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
                     </div>
 
-                    <!-- PORTFOLIO CARD (USES NEW NAMING CONVENTION) -->
+                    <!-- PORTFOLIO CARD (LOCKED FILE PATH) -->
                     <div class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
@@ -386,17 +386,17 @@
                             
                             <!-- PDF PREVIEW -->
                             <div class="pdf-preview-box">
-                                <iframe src="assets/aiden-bosanko-portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
+                                <iframe src="assets/aiden-portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
                             </div>
                         </div>
-                        <a href="assets/aiden-bosanko-portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
+                        <a href="assets/aiden-portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
                     </div>
                 </div>
 
                 <!-- VERTICAL SPACER -->
                 <div style="height: 90px;"></div>
 
-                <!-- MILESTONES HALF (NOW SEAMLESSLY INTEGRATED) -->
+                <!-- MILESTONES HALF -->
                 <div class="section-header" id="milestones">
                     <h2>RECOGNITION & MILESTONES</h2>
                 </div>
