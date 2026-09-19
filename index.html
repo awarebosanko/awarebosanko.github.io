@@ -7,15 +7,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* =========================================
+           GLOBAL RESET & VARIABLES
+           ========================================= */
         :root {
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
-            --off-black: #0d0d0d;
-            --card-black: #141414;
-            --border-color: #262626;
+            --off-black: #080808;
+            --card-black: #121212;
+            --border-color: #222222;
             --text-white: #ffffff;
             --text-dim: #999999;
-            --accent-blue: #005A9C;
+            --accent-blue: #005A9C; /* Lockheed Blue Accent */
         }
 
         html, body {
@@ -38,6 +41,9 @@
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; margin: 0; }
         a { text-decoration: none; }
         
+        /* =========================================
+           NAV BAR
+           ========================================= */
         .mega-header {
             background-color: var(--dossier-grey);
             padding: 16px 0; 
@@ -59,13 +65,16 @@
         }
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
+        /* =========================================
+           HERO SECTION (COMPACT SPLIT + ACTIVE SLIDESHOW)
+           ========================================= */
         .hero-section {
             position: relative;
-            min-height: 75vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            padding: 110px 0 60px;
+            padding: 95px 0 50px;
             background-color: var(--pure-black);
         }
 
@@ -89,7 +98,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1.25fr 0.75fr;
-            gap: 50px;
+            gap: 40px;
             align-items: center;
             position: relative;
             z-index: 3;
@@ -105,13 +114,13 @@
             font-family: 'Space Mono', monospace; font-size: 11px;
             background: var(--accent-blue); color: var(--text-white);
             padding: 4px 10px; font-weight: 700; letter-spacing: 2px;
-            display: inline-block; margin-bottom: 12px; text-transform: uppercase;
+            display: inline-block; margin-bottom: 10px; text-transform: uppercase;
             align-self: flex-start;
         }
 
         .name-title {
-            font-size: clamp(42px, 5.5vw, 70px);
-            line-height: 1; letter-spacing: -2px; margin-bottom: 10px;
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1; letter-spacing: -2px; margin-bottom: 8px;
             color: var(--text-white);
         }
 
@@ -121,38 +130,34 @@
             text-transform: uppercase;
         }
 
-        .skills-bullet-list {
-            font-family: 'Space Mono', monospace;
-            font-size: 12px;
-            color: var(--text-dim);
-            margin-bottom: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 15px;
-            list-style: none;
-            padding: 0;
-        }
-        .skills-bullet-list li {
-            display: flex;
-            align-items: center;
-            color: #ccc;
-        }
-        .skills-bullet-list li::before {
-            content: "•";
-            color: var(--accent-blue);
-            font-weight: bold;
-            margin-right: 6px;
-        }
-
         .bio-text {
             font-size: 15px; color: #ccc; line-height: 1.6;
         }
-        .bio-text p { margin-bottom: 12px; font-size: inherit; color: inherit; }
+        .bio-text p { margin-bottom: 10px; font-size: inherit; color: inherit; }
         .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
 
+        /* SKILLS BULLET LIST UNDER BIO */
+        .skills-inline-list {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: 12px;
+            margin-bottom: 0;
+            padding-left: 16px;
+            line-height: 1.6;
+        }
+        .skills-inline-list li {
+            color: #bbb;
+            margin-bottom: 3px;
+        }
+        .skills-inline-list li strong {
+            color: #fff;
+        }
+
+        /* HEADSHOT SLOT */
         .hero-visual {
             width: 100%;
-            max-width: 280px;
+            max-width: 260px;
             aspect-ratio: 4/5;
             background: #111;
             border: 2px solid var(--text-white);
@@ -165,48 +170,54 @@
             filter: grayscale(10%) contrast(105%);
         }
 
+        /* =========================================
+           PAYLOAD SECTION (DOSSIERS)
+           ========================================= */
         .payload-section {
-            padding: 70px 0;
+            padding: 60px 0;
             background: var(--dossier-grey);
             color: var(--pure-black);
             border-bottom: 2px solid var(--pure-black);
         }
 
         .section-header {
-            font-size: 32px; letter-spacing: -1px; margin-bottom: 25px;
-            border-bottom: 2px solid var(--pure-black); padding-bottom: 10px;
+            font-size: 30px; letter-spacing: -1px; margin-bottom: 20px;
+            border-bottom: 2px solid var(--pure-black); padding-bottom: 8px;
             color: var(--pure-black);
         }
 
         .doc-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 25px;
         }
 
         .doc-card {
             background: var(--text-white); border: 2px solid var(--pure-black);
-            padding: 30px; display: flex; flex-direction: column; justify-content: space-between;
+            padding: 25px; display: flex; flex-direction: column; justify-content: space-between;
             text-decoration: none; color: var(--pure-black); transition: 0.3s;
-            box-shadow: 6px 6px 0px var(--pure-black);
+            box-shadow: 5px 5px 0px var(--pure-black);
         }
         .doc-card:hover {
             transform: translateY(-3px);
-            box-shadow: 10px 10px 0px var(--pure-black);
+            box-shadow: 8px 8px 0px var(--pure-black);
         }
 
-        .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 10px; display: block; font-weight: 700; }
-        .doc-title { font-size: 30px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
-        .doc-desc { font-size: 14px; color: #444; margin-bottom: 25px; line-height: 1.5; }
+        .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 8px; display: block; font-weight: 700; }
+        .doc-title { font-size: 26px; margin-bottom: 8px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
+        .doc-desc { font-size: 13px; color: #444; margin-bottom: 20px; line-height: 1.5; }
 
         .btn-download {
             font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
             letter-spacing: 1px; text-transform: uppercase; color: var(--text-white);
-            background: var(--pure-black); padding: 15px; text-align: center; transition: 0.3s;
+            background: var(--pure-black); padding: 12px; text-align: center; transition: 0.3s;
             display: block; text-decoration: none;
         }
         .doc-card:hover .btn-download { background: var(--accent-blue); }
 
+        /* =========================================
+           MILESTONES & RECOGNITION (COHESIVE PACING)
+           ========================================= */
         .milestones-section {
-            padding: 70px 0;
+            padding: 60px 0;
             background: var(--off-black);
             border-bottom: 2px solid var(--border-color);
         }
@@ -215,7 +226,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .milestone-card {
@@ -233,31 +244,34 @@
 
         .milestone-img {
             width: 100%;
-            height: 180px;
+            height: 160px;
             object-fit: cover;
             filter: grayscale(15%) contrast(110%);
             border-bottom: 1px solid var(--border-color);
         }
 
         .milestone-body {
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .milestone-tag {
             font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
         }
         .milestone-title {
-            font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: -0.5px; line-height: 1.1; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: -0.5px; line-height: 1.1; color: var(--text-white);
         }
         .milestone-desc {
-            font-size: 13px; color: var(--text-dim); line-height: 1.5;
+            font-size: 12px; color: var(--text-dim); line-height: 1.4;
         }
 
+        /* =========================================
+           FOOTER / HORIZONTAL LINKS
+           ========================================= */
         .footer-section {
-            padding: 40px 0 60px;
+            padding: 35px 0 50px;
             background: var(--pure-black);
             border-top: 1px solid var(--border-color);
         }
@@ -271,26 +285,26 @@
         }
 
         .footer-brand {
-            font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
         }
 
         .footer-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
         .footer-links a {
-            font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--text-white);
+            font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; color: var(--text-white);
             text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
         .footer-links a:hover { color: var(--accent-blue); }
 
         @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero-visual { max-width: 240px; margin: 0 auto; }
+            .hero-grid { grid-template-columns: 1fr; gap: 25px; }
+            .hero-visual { max-width: 220px; margin: 0 auto; }
             .doc-grid { grid-template-columns: 1fr; }
             .milestones-grid { grid-template-columns: 1fr; }
-            .footer-flex { flex-direction: column; align-items: flex-start; gap: 15px; }
-            .footer-links { flex-direction: column; gap: 10px; }
+            .footer-flex { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .footer-links { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
@@ -298,6 +312,7 @@
 
     <div class="master-wrapper">
         
+        <!-- NAV -->
         <nav id="contact" class="mega-header">
             <div class="container">
                 <a href="#" class="brand">AWB</a>
@@ -309,6 +324,7 @@
             </div>
         </nav>
 
+        <!-- HERO & ABOUT -->
         <header class="hero-section">
             <div class="hero-bg-container">
                 <div id="heroBg" class="hero-bg"></div>
@@ -320,29 +336,27 @@
                     <div class="status-tag">TEXAS A&M UNIVERSITY // MECHANICAL ENGINEERING</div>
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
-                    
-                    <ul class="skills-bullet-list">
-                        <li>Python (NumPy / Pandas)</li>
-                        <li>SolidWorks CAD & Simulation</li>
-                        <li>MATLAB & Simulink</li>
-                        <li>C++ & Embedded Systems</li>
-                        <li>FEA & Computational Fluid Dynamics</li>
-                        <li>Linux Server & Docker Infrastructure</li>
-                        <li>Data Acquisition (DAQ) Pipelines</li>
-                    </ul>
 
                     <div class="bio-text">
                         <p>I'm a mechanical engineering student at Texas A&M University focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
                         <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
+                        
+                        <!-- BULLET SKILLS LIST UNDER BIO -->
+                        <ul class="skills-inline-list">
+                            <li><strong>Core Stack:</strong> Python (NumPy/Pandas), SolidWorks CAD & CFD, MATLAB & Simulink, C++</li>
+                            <li><strong>Systems & Hardware:</strong> Linux Server, Docker, DAQ Instrumentation, FEA & Structural Testing</li>
+                        </ul>
                     </div>
                 </div>
 
+                <!-- HEADSHOT SLOT -->
                 <div class="hero-visual">
                     <img src="assets/profile.jpg" alt="Aiden Ware Bosanko">
                 </div>
             </div>
         </header>
 
+        <!-- DOSSIERS (THE PAYLOAD) -->
         <section id="dossiers" class="payload-section">
             <div class="container" style="max-width: 1350px;">
                 <div class="section-header">
@@ -350,6 +364,7 @@
                 </div>
                 
                 <div class="doc-grid">
+                    <!-- RESUME CARD -->
                     <a href="assets/resume.pdf" target="_blank" class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
@@ -359,6 +374,7 @@
                         <span class="btn-download">VIEW & DOWNLOAD RESUME ↗</span>
                     </a>
 
+                    <!-- PORTFOLIO CARD -->
                     <a href="assets/portfolio.pdf" target="_blank" class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
@@ -371,6 +387,7 @@
             </div>
         </section>
 
+        <!-- MILESTONES & RECOGNITION -->
         <section id="milestones" class="milestones-section">
             <div class="container">
                 <div class="section-header" style="color: var(--text-white); border-bottom: 2px solid var(--border-color);">
@@ -378,6 +395,7 @@
                 </div>
 
                 <div class="milestones-grid">
+                    <!-- CARD 1: SCHOLARSHIP -->
                     <div class="milestone-card">
                         <img src="assets/Scholarship-awarded.jpg" alt="Cleary Zimmermann Scholarship Check Presentation" class="milestone-img">
                         <div class="milestone-body">
@@ -387,6 +405,7 @@
                         </div>
                     </div>
 
+                    <!-- CARD 2: STEM CLUB -->
                     <div class="milestone-card">
                         <img src="assets/STEM-Club-ceramony.jpeg" alt="NLC STEM Organization Ceremony" class="milestone-img">
                         <div class="milestone-body">
@@ -396,6 +415,7 @@
                         </div>
                     </div>
 
+                    <!-- CARD 3: ASSOCIATES / HONORS -->
                     <div class="milestone-card">
                         <img src="assets/Associates-awarded.jpeg" alt="Associate of Science Diploma with Honors" class="milestone-img">
                         <div class="milestone-body">
@@ -408,6 +428,7 @@
             </div>
         </section>
 
+        <!-- FOOTER -->
         <footer class="footer-section">
             <div class="container footer-flex">
                 <div class="footer-brand">AIDEN WARE BOSANKO</div>
@@ -421,6 +442,7 @@
 
     </div>
 
+    <!-- SCRIPT FOR SLIDESHOW -->
     <script>
         const photos = [
             'assets/cps-hardhat.jpeg',
