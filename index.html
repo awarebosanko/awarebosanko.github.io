@@ -14,7 +14,6 @@
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
             --off-black: #0d0d0d;
-            --card-black: #141414;
             --border-color: #262626;
             --text-white: #ffffff;
             --text-dim: #999999;
@@ -65,15 +64,15 @@
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
-           HERO SECTION
+           HERO SECTION (COMPACT HEIGHT)
            ========================================= */
         .hero-section {
             position: relative;
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            min-height: 70vh; /* Reduced height */
-            padding: 100px 0 40px; /* Reduced vertical padding */
+            min-height: 60vh; /* SIZED DOWN */
+            padding: 110px 0 40px; /* TIGHTER PADDING */
             background-color: var(--pure-black);
         }
 
@@ -114,36 +113,36 @@
             font-family: 'Space Mono', monospace; font-size: 11px;
             background: var(--accent-blue); color: var(--text-white);
             padding: 5px 12px; font-weight: 700; letter-spacing: 2px;
-            display: inline-block; margin-bottom: 15px; text-transform: uppercase;
+            display: inline-block; margin-bottom: 12px; text-transform: uppercase;
             align-self: flex-start;
         }
 
         .name-title {
-            font-size: clamp(55px, 7vw, 90px); /* Sized up */
-            line-height: 1; letter-spacing: -2px; margin-bottom: 12px;
+            font-size: clamp(45px, 6vw, 80px);
+            line-height: 1; letter-spacing: -2px; margin-bottom: 10px;
             color: var(--text-white);
         }
 
         .sub-title {
-            font-family: 'Space Mono', monospace; font-size: 13px;
-            color: #ddd; letter-spacing: 1px; margin-bottom: 25px;
+            font-family: 'Space Mono', monospace; font-size: 12px;
+            color: #ddd; letter-spacing: 1px; margin-bottom: 20px;
             text-transform: uppercase;
         }
 
         .bio-text {
-            font-size: 16px; color: #ccc; line-height: 1.6;
+            font-size: 15px; color: #ccc; line-height: 1.6;
         }
-        .bio-text p { margin-bottom: 15px; }
+        .bio-text p { margin-bottom: 10px; }
         .bio-text a { color: var(--accent-blue); font-weight: 700; border: none; text-decoration: none; transition: 0.2s;}
         .bio-text a:hover { opacity: 0.7; }
 
-        /* SKILLS BULLET LIST UNDER BIO */
+        /* SKILLS BULLET LIST (BEEFED UP) */
         .skills-bullet-list {
-            margin-top: 15px;
+            margin-top: 12px;
             padding-left: 18px;
             color: #bbb;
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.6;
         }
         .skills-bullet-list li { margin-bottom: 6px; }
@@ -151,7 +150,7 @@
 
         .hero-visual {
             width: 100%;
-            max-width: 280px;
+            max-width: 260px;
             aspect-ratio: 4/5;
             background: #111;
             border: 2px solid var(--text-white);
@@ -165,18 +164,17 @@
         }
 
         /* =========================================
-           PAYLOAD SECTION (DOSSIERS + IFRAMES)
+           UNIFIED PAYLOAD SECTION (DOSSIERS + MILESTONES)
            ========================================= */
         .payload-section {
-            padding: 90px 0;
+            padding: 80px 0 100px;
             background: var(--dossier-grey);
             color: var(--pure-black);
-            border-bottom: 8px solid var(--pure-black);
         }
 
         .section-header {
-            font-size: 36px; letter-spacing: -1px; margin-bottom: 35px;
-            border-bottom: 2px solid var(--pure-black); padding-bottom: 12px;
+            font-size: 32px; letter-spacing: -1px; margin-bottom: 30px;
+            border-bottom: 2px solid var(--pure-black); padding-bottom: 10px;
             color: var(--pure-black);
         }
 
@@ -196,8 +194,8 @@
         }
 
         .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 10px; display: block; font-weight: 700; }
-        .doc-title { font-size: 32px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
-        .doc-desc { font-size: 14px; color: #444; margin-bottom: 25px; line-height: 1.5; }
+        .doc-title { font-size: 28px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
+        .doc-desc { font-size: 14px; color: #444; margin-bottom: 20px; line-height: 1.5; }
 
         /* IFRAME PDF VIEWER */
         .pdf-preview-box {
@@ -215,25 +213,14 @@
         }
 
         .btn-download {
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
             letter-spacing: 1px; text-transform: uppercase; color: var(--text-white);
             background: var(--pure-black); padding: 15px; text-align: center; transition: 0.3s;
             display: block; text-decoration: none; margin-top: auto;
         }
         .btn-download:hover { background: var(--accent-blue); }
 
-        /* =========================================
-           MILESTONES & RECOGNITION (WHITE CARDS)
-           ========================================= */
-        .milestones-section {
-            padding: 90px 0;
-            background: var(--off-black);
-            border-bottom: 2px solid var(--border-color);
-        }
-        .milestones-section .section-header {
-            color: var(--text-white); border-color: var(--border-color);
-        }
-
+        /* MILESTONES GRID (NOW INSIDE THE UNIFIED GREY SECTION) */
         .milestones-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -267,17 +254,17 @@
             padding: 25px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .milestone-tag {
             font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
         }
         .milestone-title {
-            font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: -0.5px; line-height: 1.1; color: var(--pure-black);
+            font-family: 'Oswald', sans-serif; font-size: 22px; letter-spacing: -0.5px; line-height: 1.1; color: var(--pure-black);
         }
         .milestone-desc {
-            font-size: 14px; color: #444; line-height: 1.5;
+            font-size: 13px; color: #444; line-height: 1.5;
         }
 
         /* =========================================
@@ -286,7 +273,7 @@
         .footer-section {
             padding: 50px 0 80px;
             background: var(--pure-black);
-            border-top: 1px solid var(--border-color);
+            border-top: 4px solid var(--pure-black);
         }
 
         .footer-flex {
@@ -298,7 +285,7 @@
         }
 
         .footer-brand {
-            font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
         }
 
         .footer-links {
@@ -313,7 +300,7 @@
 
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-            .hero-visual { max-width: 260px; margin: 0 auto; }
+            .hero-visual { max-width: 240px; margin: 0 auto; }
             .doc-grid { grid-template-columns: 1fr; }
             .milestones-grid { grid-template-columns: 1fr; }
             .footer-flex { flex-direction: column; align-items: flex-start; gap: 15px; }
@@ -337,7 +324,7 @@
             </div>
         </nav>
 
-        <!-- HERO & ABOUT -->
+        <!-- HERO & ABOUT (COMPACT) -->
         <header class="hero-section">
             <div class="hero-bg-container">
                 <div id="heroBg" class="hero-bg"></div>
@@ -355,30 +342,32 @@
                         <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
                     </div>
 
-                    <!-- SKILLS BULLETS UNDER BIO -->
+                    <!-- BEEFED UP SKILLS BULLETS -->
                     <ul class="skills-bullet-list">
-                        <li><strong>Design & Analysis:</strong> SolidWorks CAD, STAR-CCM+ (CFD), Altium Designer, KiCad</li>
-                        <li><strong>Software & Controls:</strong> Python, MATLAB/Simulink, C++, ArduPilot, Mission Planner</li>
-                        <li><strong>Hardware & Infrastructure:</strong> DAQ Systems, Linux / Docker Server Admin, Advanced 3D Printing</li>
+                        <li><strong>Design & Simulation:</strong> SolidWorks (CFD & Flow), Altium Designer, KiCad, MATLAB</li>
+                        <li><strong>Software & Controls:</strong> Python, C/C++, ArduPilot, Linux/IoT, SCADA</li>
+                        <li><strong>Hardware & Fabrication:</strong> DAQ Systems, ICE Diagnostics, CNC Machining, FDM 3D Printing</li>
                     </ul>
                 </div>
 
-                <!-- NEW HEADSHOT SLOT -->
+                <!-- HEADSHOT SLOT -->
                 <div class="hero-visual">
                     <img src="assets/Headshot.jpg" alt="Aiden Ware Bosanko">
                 </div>
             </div>
         </header>
 
-        <!-- DOSSIERS WITH PDF PREVIEWS -->
+        <!-- UNIFIED PAYLOAD SECTION: DOSSIERS + MILESTONES -->
         <section id="dossiers" class="payload-section">
             <div class="container" style="max-width: 1350px;">
+                
+                <!-- DOSSIERS HALF -->
                 <div class="section-header">
                     <h2>TECHNICAL DOSSIERS</h2>
                 </div>
                 
                 <div class="doc-grid">
-                    <!-- RESUME CARD -->
+                    <!-- RESUME CARD (USES EXACT FILENAME) -->
                     <div class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
@@ -387,10 +376,10 @@
                             
                             <!-- PDF PREVIEW -->
                             <div class="pdf-preview-box">
-                                <iframe src="assets/resume.pdf#view=FitH" title="Resume Preview"></iframe>
+                                <iframe src="assets/Resume - Aiden Ware Bosanko.pdf#view=FitH" title="Resume Preview"></iframe>
                             </div>
                         </div>
-                        <a href="assets/resume.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
+                        <a href="assets/Resume - Aiden Ware Bosanko.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
                     </div>
 
                     <!-- PORTFOLIO CARD -->
@@ -408,13 +397,12 @@
                         <a href="assets/portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- MILESTONES & RECOGNITION -->
-        <section id="milestones" class="milestones-section">
-            <div class="container" style="max-width: 1350px;">
-                <div class="section-header">
+                <!-- VERTICAL SPACER -->
+                <div style="height: 80px;"></div>
+
+                <!-- MILESTONES HALF (BLENDED IN) -->
+                <div class="section-header" id="milestones">
                     <h2>RECOGNITION & MILESTONES</h2>
                 </div>
 
@@ -446,6 +434,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
