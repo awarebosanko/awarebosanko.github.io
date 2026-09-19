@@ -7,9 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* =========================================
-           GLOBAL RESET & VARIABLES
-           ========================================= */
         :root {
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
@@ -18,7 +15,7 @@
             --border-color: #262626;
             --text-white: #ffffff;
             --text-dim: #999999;
-            --accent-blue: #005A9C; /* Lockheed Blue Accent */
+            --accent-blue: #005A9C;
         }
 
         html, body {
@@ -41,9 +38,6 @@
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; margin: 0; }
         a { text-decoration: none; }
         
-        /* =========================================
-           NAV BAR
-           ========================================= */
         .mega-header {
             background-color: var(--dossier-grey);
             padding: 16px 0; 
@@ -65,9 +59,6 @@
         }
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
-        /* =========================================
-           HERO SECTION (COMPACT SPLIT + CONTAINED SLIDESHOW WITH SIDE BARS)
-           ========================================= */
         .hero-section {
             position: relative;
             min-height: 75vh;
@@ -78,7 +69,6 @@
             background-color: var(--pure-black);
         }
 
-        /* CONTAINED SLIDESHOW BACKGROUND WITH SIDE BARS */
         .hero-bg-container {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0; overflow: hidden; display: flex; justify-content: center; align-items: center;
@@ -90,14 +80,12 @@
             filter: grayscale(25%) contrast(110%);
             transition: opacity 1s ease-in-out;
         }
-        /* SIDE BARS / FADE GRADIENTS FOR MONITORS & TVS */
         .hero-side-bars {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1; pointer-events: none;
             background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,0.98) 100%);
         }
 
-        /* TWO-COLUMN GRID TO HOLD TEXT AND HEADSHOT */
         .hero-grid {
             display: grid;
             grid-template-columns: 1.25fr 0.75fr;
@@ -133,7 +121,6 @@
             text-transform: uppercase;
         }
 
-        /* BULLET LIST SKILLS UNDER BIO / SUB-TITLE */
         .skills-bullet-list {
             font-family: 'Space Mono', monospace;
             font-size: 12px;
@@ -162,9 +149,7 @@
         }
         .bio-text p { margin-bottom: 12px; font-size: inherit; color: inherit; }
         .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
-        .bio-text a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); }
 
-        /* HEADSHOT CONTAINER ON RIGHT */
         .hero-visual {
             width: 100%;
             max-width: 280px;
@@ -180,9 +165,6 @@
             filter: grayscale(10%) contrast(105%);
         }
 
-        /* =========================================
-           PAYLOAD SECTION (DOSSIERS)
-           ========================================= */
         .payload-section {
             padding: 70px 0;
             background: var(--dossier-grey);
@@ -223,9 +205,6 @@
         }
         .doc-card:hover .btn-download { background: var(--accent-blue); }
 
-        /* =========================================
-           MILESTONES & RECOGNITION (VISUAL GRID WITH COHESIVE PACING)
-           ========================================= */
         .milestones-section {
             padding: 70px 0;
             background: var(--off-black);
@@ -277,9 +256,6 @@
             font-size: 13px; color: var(--text-dim); line-height: 1.5;
         }
 
-        /* =========================================
-           FOOTER / HORIZONTAL LINKS
-           ========================================= */
         .footer-section {
             padding: 40px 0 60px;
             background: var(--pure-black);
@@ -322,7 +298,6 @@
 
     <div class="master-wrapper">
         
-        <!-- NAV -->
         <nav id="contact" class="mega-header">
             <div class="container">
                 <a href="#" class="brand">AWB</a>
@@ -334,7 +309,6 @@
             </div>
         </nav>
 
-        <!-- HERO & ABOUT (COMPACT SPLIT + CONTAINED SLIDESHOW) -->
         <header class="hero-section">
             <div class="hero-bg-container">
                 <div id="heroBg" class="hero-bg"></div>
@@ -347,7 +321,6 @@
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
                     
-                    <!-- BULLET SKILLS LIST UNDER SUBTITLE -->
                     <ul class="skills-bullet-list">
                         <li>Python (NumPy / Pandas)</li>
                         <li>SolidWorks CAD & Simulation</li>
@@ -359,19 +332,17 @@
                     </ul>
 
                     <div class="bio-text">
-                        <p>I'm a mechanical engineering student at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a> focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
+                        <p>I'm a mechanical engineering student at Texas A&M University focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
                         <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
                     </div>
                 </div>
 
-                <!-- HEADSHOT SLOT -->
                 <div class="hero-visual">
                     <img src="assets/profile.jpg" alt="Aiden Ware Bosanko">
                 </div>
             </div>
         </header>
 
-        <!-- DOSSIERS (THE PAYLOAD) -->
         <section id="dossiers" class="payload-section">
             <div class="container" style="max-width: 1350px;">
                 <div class="section-header">
@@ -379,7 +350,6 @@
                 </div>
                 
                 <div class="doc-grid">
-                    <!-- RESUME CARD -->
                     <a href="assets/resume.pdf" target="_blank" class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
@@ -389,7 +359,6 @@
                         <span class="btn-download">VIEW & DOWNLOAD RESUME ↗</span>
                     </a>
 
-                    <!-- PORTFOLIO CARD -->
                     <a href="assets/portfolio.pdf" target="_blank" class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
@@ -402,7 +371,6 @@
             </div>
         </section>
 
-        <!-- MILESTONES & RECOGNITION (VISUAL GRID) -->
         <section id="milestones" class="milestones-section">
             <div class="container">
                 <div class="section-header" style="color: var(--text-white); border-bottom: 2px solid var(--border-color);">
@@ -410,7 +378,6 @@
                 </div>
 
                 <div class="milestones-grid">
-                    <!-- CARD 1: SCHOLARSHIP -->
                     <div class="milestone-card">
                         <img src="assets/Scholarship-awarded.jpg" alt="Cleary Zimmermann Scholarship Check Presentation" class="milestone-img">
                         <div class="milestone-body">
@@ -420,7 +387,6 @@
                         </div>
                     </div>
 
-                    <!-- CARD 2: STEM CLUB -->
                     <div class="milestone-card">
                         <img src="assets/STEM-Club-ceramony.jpeg" alt="NLC STEM Organization Ceremony" class="milestone-img">
                         <div class="milestone-body">
@@ -430,7 +396,6 @@
                         </div>
                     </div>
 
-                    <!-- CARD 3: ASSOCIATES / HONORS -->
                     <div class="milestone-card">
                         <img src="assets/Associates-awarded.jpeg" alt="Associate of Science Diploma with Honors" class="milestone-img">
                         <div class="milestone-body">
@@ -443,7 +408,6 @@
             </div>
         </section>
 
-        <!-- FOOTER / HORIZONTAL LINKS -->
         <footer class="footer-section">
             <div class="container footer-flex">
                 <div class="footer-brand">AIDEN WARE BOSANKO</div>
@@ -457,7 +421,6 @@
 
     </div>
 
-    <!-- JAVASCRIPT FOR CONTAINED AUTOMATED BACKGROUND SLIDESHOW LOOP -->
     <script>
         const photos = [
             'assets/cps-hardhat.jpeg',
@@ -482,12 +445,10 @@
             }, 600);
         }
 
-        // Initialize first background
         heroBg.style.backgroundImage = `url('${photos[currentIndex]}')`;
         heroBg.style.transition = 'opacity 0.8s ease-in-out';
         heroBg.style.opacity = 1;
 
-        // Automatically cycle every 6 seconds
         setInterval(updateBackground, 6000);
     </script>
 
