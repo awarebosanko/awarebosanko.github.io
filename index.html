@@ -13,8 +13,9 @@
         :root {
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
-            --off-black: #0a0a0a;
-            --border-color: #222222;
+            --off-black: #0d0d0d;
+            --card-black: #141414;
+            --border-color: #262626;
             --text-white: #ffffff;
             --text-dim: #999999;
             --accent-blue: #005A9C; /* Lockheed Blue Accent */
@@ -44,7 +45,7 @@
            ========================================= */
         .mega-header {
             background-color: var(--dossier-grey);
-            padding: 20px 0; 
+            padding: 18px 0; 
             position: absolute;
             width: 100%;
             top: 0;
@@ -54,25 +55,25 @@
         .mega-header .container {
             display: flex; justify-content: space-between; align-items: center;
         }
-        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 1px; color: var(--pure-black); text-decoration: none;}
+        .brand { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: 1px; color: var(--pure-black); text-decoration: none;}
         .nav-links a { 
             font-family: 'Inter', sans-serif; color: var(--pure-black); 
             text-decoration: none; text-transform: uppercase; 
-            font-size: 14px; margin-left: 45px; font-weight: 700; 
+            font-size: 13px; margin-left: 35px; font-weight: 700; 
             letter-spacing: 1px; transition: 0.3s; 
         }
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
-           HERO SECTION (SPLIT LAYOUT + RANDOM BG)
+           HERO SECTION (COMPACT SPLIT + ACTIVE SLIDESHOW + VIGNETTE)
            ========================================= */
         .hero-section {
             position: relative;
-            min-height: 90vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            padding: 140px 0 100px;
+            padding: 110px 0 70px;
             background-color: var(--pure-black);
         }
 
@@ -86,14 +87,20 @@
         .hero-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
-            background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 55%, rgba(0,0,0,0.7) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.88) 55%, rgba(0,0,0,0.7) 100%);
+        }
+        /* CINEMATIC VIGNETTE EDGES */
+        .hero-vignette {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 2; pointer-events: none;
+            box-shadow: inset 0 0 120px rgba(0,0,0,0.9);
         }
 
         /* TWO-COLUMN GRID TO HOLD TEXT AND HEADSHOT */
         .hero-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 50px;
             align-items: center;
         }
 
@@ -104,39 +111,59 @@
         }
 
         .status-tag {
-            font-family: 'Space Mono', monospace; font-size: 12px;
+            font-family: 'Space Mono', monospace; font-size: 11px;
             background: var(--accent-blue); color: var(--text-white);
-            padding: 5px 12px; font-weight: 700; letter-spacing: 2px;
-            display: inline-block; margin-bottom: 25px; text-transform: uppercase;
+            padding: 4px 10px; font-weight: 700; letter-spacing: 2px;
+            display: inline-block; margin-bottom: 15px; text-transform: uppercase;
             align-self: flex-start;
         }
 
         .name-title {
-            font-size: clamp(50px, 7vw, 85px);
-            line-height: 1; letter-spacing: -2px; margin-bottom: 15px;
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 1; letter-spacing: -2px; margin-bottom: 12px;
             color: var(--text-white);
         }
 
         .sub-title {
-            font-family: 'Space Mono', monospace; font-size: 13px;
-            color: #ccc; letter-spacing: 1px; margin-bottom: 25px;
+            font-family: 'Space Mono', monospace; font-size: 12px;
+            color: #ddd; letter-spacing: 1px; margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* COMPACT SKILLS SUB-BAR */
+        .skills-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .skill-chip {
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            padding: 4px 8px;
+            border: 1px solid rgba(255,255,255,0.2);
             text-transform: uppercase;
         }
 
         .bio-text {
-            font-size: 17px; color: #ccc; line-height: 1.7;
+            font-size: 15px; color: #ccc; line-height: 1.6;
         }
-        .bio-text p { margin-bottom: 18px; font-size: inherit; color: inherit; }
+        .bio-text p { margin-bottom: 12px; font-size: inherit; color: inherit; }
         .bio-text span { color: #fff; font-weight: 600; border-bottom: 2px solid var(--accent-blue); }
 
         /* HEADSHOT CONTAINER ON RIGHT */
         .hero-visual {
             width: 100%;
+            max-width: 340px;
             aspect-ratio: 4/5;
             background: #111;
             border: 2px solid var(--text-white);
             overflow: hidden;
-            box-shadow: 15px 15px 0px rgba(255,255,255,0.2);
+            box-shadow: 12px 12px 0px rgba(255,255,255,0.15);
+            margin: 0 auto;
         }
         .hero-visual img {
             width: 100%; height: 100%; object-fit: cover;
@@ -147,41 +174,41 @@
            PAYLOAD SECTION (DOSSIERS)
            ========================================= */
         .payload-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: var(--dossier-grey);
             color: var(--pure-black);
             border-bottom: 2px solid var(--pure-black);
         }
 
         .section-header {
-            font-size: 40px; letter-spacing: -1px; margin-bottom: 40px;
-            border-bottom: 2px solid var(--pure-black); padding-bottom: 15px;
+            font-size: 32px; letter-spacing: -1px; margin-bottom: 30px;
+            border-bottom: 2px solid var(--pure-black); padding-bottom: 12px;
             color: var(--pure-black);
         }
 
         .doc-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
         }
 
         .doc-card {
             background: var(--text-white); border: 2px solid var(--pure-black);
-            padding: 40px; display: flex; flex-direction: column; justify-content: space-between;
+            padding: 35px; display: flex; flex-direction: column; justify-content: space-between;
             text-decoration: none; color: var(--pure-black); transition: 0.3s;
-            box-shadow: 8px 8px 0px var(--pure-black);
+            box-shadow: 6px 6px 0px var(--pure-black);
         }
         .doc-card:hover {
             transform: translateY(-3px);
-            box-shadow: 12px 12px 0px var(--pure-black);
+            box-shadow: 10px 10px 0px var(--pure-black);
         }
 
-        .doc-meta { font-family: 'Space Mono', monospace; font-size: 12px; color: #666; margin-bottom: 15px; display: block; font-weight: 700; }
-        .doc-title { font-size: 36px; margin-bottom: 15px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
-        .doc-desc { font-size: 15px; color: #444; margin-bottom: 40px; line-height: 1.6; }
+        .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 12px; display: block; font-weight: 700; }
+        .doc-title { font-size: 30px; margin-bottom: 12px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
+        .doc-desc { font-size: 14px; color: #444; margin-bottom: 30px; line-height: 1.6; }
 
         .btn-download {
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
             letter-spacing: 1px; text-transform: uppercase; color: var(--text-white);
-            background: var(--pure-black); padding: 18px; text-align: center; transition: 0.3s;
+            background: var(--pure-black); padding: 15px; text-align: center; transition: 0.3s;
             display: block; text-decoration: none;
         }
         .doc-card:hover .btn-download { background: var(--accent-blue); }
@@ -190,7 +217,7 @@
            MILESTONES & RECOGNITION (VISUAL GRID)
            ========================================= */
         .milestones-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: var(--pure-black);
             border-bottom: 2px solid var(--border-color);
         }
@@ -198,8 +225,8 @@
         .milestones-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .milestone-card {
@@ -212,40 +239,41 @@
         }
         .milestone-card:hover {
             border-color: var(--accent-blue);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
         }
 
         .milestone-img {
             width: 100%;
-            height: 220px;
+            height: 190px;
             object-fit: cover;
             filter: grayscale(15%) contrast(110%);
             border-bottom: 1px solid var(--border-color);
         }
 
         .milestone-body {
-            padding: 25px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .milestone-tag {
-            font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            font-family: 'Space Mono', monospace; font-size: 10px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
         }
         .milestone-title {
-            font-family: 'Oswald', sans-serif; font-size: 22px; letter-spacing: -0.5px; line-height: 1.1; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 20px; letter-spacing: -0.5px; line-height: 1.1; color: var(--text-white);
         }
         .milestone-desc {
-            font-size: 14px; color: var(--text-dim); line-height: 1.6;
+            font-size: 13px; color: var(--text-dim); line-height: 1.5;
         }
 
         /* =========================================
            FOOTER / HORIZONTAL LINKS
            ========================================= */
         .footer-section {
-            padding: 60px 0 100px;
-            background: var(--off-black);
+            padding: 50px 0 80px;
+            background: var(--card-black);
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-flex {
@@ -253,30 +281,30 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 25px;
         }
 
         .footer-brand {
-            font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
         }
 
         .footer-links {
             display: flex;
-            gap: 40px;
+            gap: 30px;
         }
         .footer-links a {
-            font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; color: var(--text-white);
+            font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; color: var(--text-white);
             text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
         .footer-links a:hover { color: var(--accent-blue); }
 
         @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero-visual { max-width: 350px; margin: 0 auto; }
+            .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-visual { max-width: 300px; margin: 0 auto; }
             .doc-grid { grid-template-columns: 1fr; }
             .milestones-grid { grid-template-columns: 1fr; }
             .footer-flex { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .footer-links { flex-direction: column; gap: 15px; }
+            .footer-links { flex-direction: column; gap: 12px; }
         }
     </style>
 </head>
@@ -285,21 +313,22 @@
     <div class="master-wrapper">
         
         <!-- NAV -->
-        <nav class="mega-header">
+        <nav id="contact" class="mega-header">
             <div class="container">
                 <a href="#" class="brand">AWB</a>
                 <div class="nav-links">
                     <a href="#dossiers">Dossiers</a>
                     <a href="#milestones">Recognition</a>
-                    <a href="https://github.com/awarebosanko" target="_blank">GitHub ↗</a>
+                    <a href="mailto:aidenbosanko@gmail.com">Contact ↗</a>
                 </div>
             </div>
         </nav>
 
-        <!-- HERO & ABOUT (SPLIT LAYOUT WITH HEADSHOT) -->
+        <!-- HERO & ABOUT (COMPACT SPLIT + ACTIVE SLIDESHOW) -->
         <header class="hero-section">
             <div id="heroBg" class="hero-bg"></div>
             <div class="hero-overlay"></div>
+            <div class="hero-vignette"></div>
 
             <div class="container hero-grid">
                 <div class="hero-content">
@@ -307,6 +336,17 @@
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
                     
+                    <!-- SKILLS BRIEF BAR -->
+                    <div class="skills-bar">
+                        <span class="skill-chip">Python</span>
+                        <span class="skill-chip">SolidWorks</span>
+                        <span class="skill-chip">MATLAB</span>
+                        <span class="skill-chip">C++</span>
+                        <span class="skill-chip">FEA / CFD</span>
+                        <span class="skill-chip">Linux / Docker</span>
+                        <span class="skill-chip">DAQ Integration</span>
+                    </div>
+
                     <div class="bio-text">
                         <p>I'm a mechanical engineering student at <span>Texas A&M University</span> focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
                         <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
@@ -406,7 +446,7 @@
 
     </div>
 
-    <!-- JAVASCRIPT FOR RANDOM HEADSHOT / OUTREACH BACKGROUND SELECTOR -->
+    <!-- JAVASCRIPT FOR ACTIVE AUTOMATED BACKGROUND SLIDESHOW LOOP -->
     <script>
         const photos = [
             'assets/cps-hardhat.jpeg',
@@ -419,9 +459,25 @@
             'assets/Scholarship.jpeg'
         ];
 
-        const randomIndex = Math.floor(Math.random() * photos.length);
-        const selectedPhoto = photos[randomIndex];
-        document.getElementById('heroBg').style.backgroundImage = `url('${selectedPhoto}')`;
+        let currentIndex = Math.floor(Math.random() * photos.length);
+        const heroBg = document.getElementById('heroBg');
+
+        function updateBackground() {
+            heroBg.style.opacity = 0;
+            setTimeout(() => {
+                heroBg.style.backgroundImage = `url('${photos[currentIndex]}')`;
+                heroBg.style.opacity = 1;
+                currentIndex = (currentIndex + 1) % photos.length;
+            }, 600);
+        }
+
+        // Initialize first background
+        heroBg.style.backgroundImage = `url('${photos[currentIndex]}')`;
+        heroBg.style.transition = 'opacity 0.8s ease-in-out';
+        heroBg.style.opacity = 1;
+
+        // Automatically cycle every 6 seconds
+        setInterval(updateBackground, 6000);
     </script>
 
 </body>
