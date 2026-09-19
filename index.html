@@ -64,15 +64,15 @@
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
-           HERO SECTION (COMPACT HEIGHT)
+           HERO SECTION
            ========================================= */
         .hero-section {
             position: relative;
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            min-height: 60vh; /* SIZED DOWN */
-            padding: 110px 0 40px; /* TIGHTER PADDING */
+            min-height: 70vh; 
+            padding: 110px 0 40px; 
             background-color: var(--pure-black);
         }
 
@@ -129,24 +129,30 @@
             text-transform: uppercase;
         }
 
+        /* PRO BIO TEXT */
         .bio-text {
             font-size: 15px; color: #ccc; line-height: 1.6;
         }
-        .bio-text p { margin-bottom: 10px; }
-        .bio-text a { color: var(--accent-blue); font-weight: 700; border: none; text-decoration: none; transition: 0.2s;}
-        .bio-text a:hover { opacity: 0.7; }
+        .bio-text p { margin-bottom: 12px; }
 
-        /* SKILLS BULLET LIST (BEEFED UP) */
+        /* SKILLS LIST & BLUE HIGHLIGHTS */
         .skills-bullet-list {
-            margin-top: 12px;
+            margin-top: 10px;
             padding-left: 18px;
             color: #bbb;
             font-family: 'Inter', sans-serif;
-            font-size: 13px;
+            font-size: 13.5px;
             line-height: 1.6;
         }
         .skills-bullet-list li { margin-bottom: 6px; }
         .skills-bullet-list li strong { color: #fff; }
+        
+        .blue-highlight {
+            color: var(--accent-blue);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 700;
+        }
 
         .hero-visual {
             width: 100%;
@@ -160,20 +166,21 @@
         }
         .hero-visual img {
             width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(10%) contrast(105%);
+            filter: grayscale(5%) contrast(105%);
         }
 
         /* =========================================
            UNIFIED PAYLOAD SECTION (DOSSIERS + MILESTONES)
            ========================================= */
         .payload-section {
-            padding: 80px 0 100px;
-            background: var(--dossier-grey);
+            padding: 90px 0 110px;
+            background: var(--dossier-grey); /* SOLID GREY BACKGROUND FOR BOTH SECTIONS */
             color: var(--pure-black);
+            border-bottom: 2px solid var(--pure-black);
         }
 
         .section-header {
-            font-size: 32px; letter-spacing: -1px; margin-bottom: 30px;
+            font-size: 36px; letter-spacing: -1px; margin-bottom: 35px;
             border-bottom: 2px solid var(--pure-black); padding-bottom: 10px;
             color: var(--pure-black);
         }
@@ -182,20 +189,21 @@
             display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
         }
 
-        .doc-card {
+        .doc-card, .milestone-card {
             background: var(--text-white); border: 2px solid var(--pure-black);
-            padding: 30px; display: flex; flex-direction: column;
+            display: flex; flex-direction: column;
             color: var(--pure-black); transition: 0.3s;
             box-shadow: 6px 6px 0px var(--pure-black);
         }
-        .doc-card:hover {
+        .doc-card { padding: 30px; }
+        .doc-card:hover, .milestone-card:hover {
             transform: translateY(-3px);
             box-shadow: 10px 10px 0px var(--pure-black);
         }
 
         .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 10px; display: block; font-weight: 700; }
-        .doc-title { font-size: 28px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
-        .doc-desc { font-size: 14px; color: #444; margin-bottom: 20px; line-height: 1.5; }
+        .doc-title { font-size: 32px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
+        .doc-desc { font-size: 14px; color: #444; margin-bottom: 25px; line-height: 1.5; }
 
         /* IFRAME PDF VIEWER */
         .pdf-preview-box {
@@ -213,33 +221,19 @@
         }
 
         .btn-download {
-            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px;
+            font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
             letter-spacing: 1px; text-transform: uppercase; color: var(--text-white);
             background: var(--pure-black); padding: 15px; text-align: center; transition: 0.3s;
             display: block; text-decoration: none; margin-top: auto;
         }
         .btn-download:hover { background: var(--accent-blue); }
 
-        /* MILESTONES GRID (NOW INSIDE THE UNIFIED GREY SECTION) */
+        /* MILESTONES GRID (NOW SEAMLESSLY BLENDED) */
         .milestones-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 30px;
-        }
-
-        .milestone-card {
-            background: var(--text-white);
-            border: 2px solid var(--pure-black);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: 0.3s;
-            box-shadow: 6px 6px 0px var(--pure-black);
-        }
-        .milestone-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 10px 10px 0px var(--pure-black);
         }
 
         .milestone-img {
@@ -254,17 +248,17 @@
             padding: 25px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .milestone-tag {
             font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
         }
         .milestone-title {
-            font-family: 'Oswald', sans-serif; font-size: 22px; letter-spacing: -0.5px; line-height: 1.1; color: var(--pure-black);
+            font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: -0.5px; line-height: 1.1; color: var(--pure-black);
         }
         .milestone-desc {
-            font-size: 13px; color: #444; line-height: 1.5;
+            font-size: 14px; color: #444; line-height: 1.5;
         }
 
         /* =========================================
@@ -285,7 +279,7 @@
         }
 
         .footer-brand {
-            font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
+            font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
         }
 
         .footer-links {
@@ -324,7 +318,7 @@
             </div>
         </nav>
 
-        <!-- HERO & ABOUT (COMPACT) -->
+        <!-- HERO & ABOUT -->
         <header class="hero-section">
             <div class="hero-bg-container">
                 <div id="heroBg" class="hero-bg"></div>
@@ -337,16 +331,17 @@
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
 
+                    <!-- HEAVY-HITTING PRO BIO -->
                     <div class="bio-text">
-                        <p>I'm a mechanical engineering student at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a> focused on building physical hardware that actually performs in the field. My approach bridges the gap between clean analytical simulation and rigorous hands-on fabrication.</p>
-                        <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
+                        <p>I am a mechanical engineer specializing in systems integration, propulsion, and utility-scale power generation. My experience spans from leading avionics architecture for Texas A&M's Vertical Flight Design team to executing plant-wide SCADA diagnostics and pressure relief engineering for CPS Energy.</p>
+                        <p>I build fault-tolerant systems that bridge the gap between rigorous computational simulation and physical hardware deployment.</p>
                     </div>
 
-                    <!-- BEEFED UP SKILLS BULLETS -->
+                    <!-- BLUE HIGHLIGHT SKILLS LIST -->
                     <ul class="skills-bullet-list">
-                        <li><strong>Design & Simulation:</strong> SolidWorks (CFD & Flow), Altium Designer, KiCad, MATLAB</li>
-                        <li><strong>Software & Controls:</strong> Python, C/C++, ArduPilot, Linux/IoT, SCADA</li>
-                        <li><strong>Hardware & Fabrication:</strong> DAQ Systems, ICE Diagnostics, CNC Machining, FDM 3D Printing</li>
+                        <li><strong>Core Competencies:</strong> <span class="blue-highlight">Systems Integration</span>, <span class="blue-highlight">SCADA Diagnostics</span>, P&IDs, Root Cause Analysis</li>
+                        <li><strong>Design & Simulation:</strong> <span class="blue-highlight">SolidWorks (CFD & Flow)</span>, Altium Designer, KiCad, eCalc</li>
+                        <li><strong>Hardware & Software:</strong> <span class="blue-highlight">DAQ Instrumentation</span>, ArduPilot, C/C++, Python, CNC Machining</li>
                     </ul>
                 </div>
 
@@ -357,7 +352,7 @@
             </div>
         </header>
 
-        <!-- UNIFIED PAYLOAD SECTION: DOSSIERS + MILESTONES -->
+        <!-- UNIFIED GREY SECTION: DOSSIERS + MILESTONES -->
         <section id="dossiers" class="payload-section">
             <div class="container" style="max-width: 1350px;">
                 
@@ -367,7 +362,7 @@
                 </div>
                 
                 <div class="doc-grid">
-                    <!-- RESUME CARD (USES EXACT FILENAME) -->
+                    <!-- RESUME CARD (USES NEW NAMING CONVENTION) -->
                     <div class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
@@ -376,13 +371,13 @@
                             
                             <!-- PDF PREVIEW -->
                             <div class="pdf-preview-box">
-                                <iframe src="assets/Resume - Aiden Ware Bosanko.pdf#view=FitH" title="Resume Preview"></iframe>
+                                <iframe src="assets/aiden-bosanko-resume.pdf#view=FitH" title="Resume Preview"></iframe>
                             </div>
                         </div>
-                        <a href="assets/Resume - Aiden Ware Bosanko.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
+                        <a href="assets/aiden-bosanko-resume.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
                     </div>
 
-                    <!-- PORTFOLIO CARD -->
+                    <!-- PORTFOLIO CARD (USES NEW NAMING CONVENTION) -->
                     <div class="doc-card">
                         <div>
                             <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
@@ -391,17 +386,17 @@
                             
                             <!-- PDF PREVIEW -->
                             <div class="pdf-preview-box">
-                                <iframe src="assets/portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
+                                <iframe src="assets/aiden-bosanko-portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
                             </div>
                         </div>
-                        <a href="assets/portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
+                        <a href="assets/aiden-bosanko-portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
                     </div>
                 </div>
 
                 <!-- VERTICAL SPACER -->
-                <div style="height: 80px;"></div>
+                <div style="height: 90px;"></div>
 
-                <!-- MILESTONES HALF (BLENDED IN) -->
+                <!-- MILESTONES HALF (NOW SEAMLESSLY INTEGRATED) -->
                 <div class="section-header" id="milestones">
                     <h2>RECOGNITION & MILESTONES</h2>
                 </div>
