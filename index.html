@@ -14,10 +14,11 @@
             --dossier-grey: #e4e4e4;
             --pure-black: #000000;
             --off-black: #0d0d0d;
+            --card-black: #141414;
             --border-color: #262626;
             --text-white: #ffffff;
             --text-dim: #999999;
-            --accent-blue: #005A9C;
+            --accent-blue: #005A9C; /* Lockheed Blue Accent */
         }
 
         html, body {
@@ -64,14 +65,15 @@
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
 
         /* =========================================
-           HERO SECTION
+           HERO SECTION (SIZED UP SLIGHTLY, FACES CENTERED)
            ========================================= */
         .hero-section {
             position: relative;
             display: flex;
             align-items: center;
             border-bottom: 2px solid var(--pure-black);
-            padding: 120px 0 60px; /* Reduced vertical footprint */
+            min-height: 82vh; /* SLIGHTLY TALLER TO BREATHE */
+            padding: 130px 0 80px; 
             background-color: var(--pure-black);
         }
 
@@ -82,7 +84,8 @@
         }
         .hero-bg {
             width: 85%; height: 100%; position: absolute;
-            background-size: cover; background-position: center;
+            background-size: cover; 
+            background-position: center 25%; /* ANCHORS HIGHER TO KEEP FACES IN FRAME */
             filter: grayscale(25%) contrast(110%);
             transition: opacity 1s ease-in-out;
         }
@@ -116,7 +119,7 @@
         }
 
         .name-title {
-            font-size: clamp(50px, 6.5vw, 85px); /* Scaled up text */
+            font-size: clamp(50px, 6.5vw, 85px);
             line-height: 1; letter-spacing: -2px; margin-bottom: 12px;
             color: var(--text-white);
         }
@@ -134,7 +137,7 @@
         .bio-text a { color: var(--accent-blue); font-weight: 700; border: none; text-decoration: none; transition: 0.2s;}
         .bio-text a:hover { opacity: 0.7; }
 
-        /* CLEAN BULLET POINTS UNDER BIO */
+        /* CUSTOM SKILLS BULLET LIST UNDER BIO */
         .skills-bullet-list {
             margin-top: 15px;
             padding-left: 18px;
@@ -143,7 +146,7 @@
             font-size: 14px;
             line-height: 1.6;
         }
-        .skills-bullet-list li { margin-bottom: 8px; }
+        .skills-bullet-list li { margin-bottom: 6px; }
         .skills-bullet-list li strong { color: #fff; }
 
         .hero-visual {
@@ -165,10 +168,10 @@
            PAYLOAD SECTION (DOSSIERS + PDF IFRAMES)
            ========================================= */
         .payload-section {
-            padding: 80px 0;
+            padding: 90px 0;
             background: var(--dossier-grey);
             color: var(--pure-black);
-            border-bottom: 2px solid var(--pure-black);
+            border-bottom: 8px solid var(--pure-black); /* HEAVY BORDER TO SMOOTH TRANSITION */
         }
 
         .section-header {
@@ -223,7 +226,7 @@
            MILESTONES & RECOGNITION (MATCHES DOSSIER STYLING)
            ========================================= */
         .milestones-section {
-            padding: 80px 0;
+            padding: 90px 0;
             background: var(--off-black);
             border-bottom: 2px solid var(--border-color);
         }
@@ -238,7 +241,6 @@
             margin-top: 30px;
         }
 
-        /* UPDATED: Cards now have white background + black text to match dossiers */
         .milestone-card {
             background: var(--text-white);
             border: 2px solid var(--pure-black);
@@ -353,10 +355,11 @@
                         <p>Whether I'm designing high-pressure relief systems at a power plant or building automated data acquisition testing pipelines in the lab, I care about clean engineering fundamentals, robust design, and fault-tolerant execution.</p>
                     </div>
 
-                    <!-- BULLET SKILLS LIST -->
+                    <!-- CUSTOM ENGINEER SKILLS LIST -->
                     <ul class="skills-bullet-list">
-                        <li><strong>Core Stack:</strong> Python (NumPy/Pandas), SolidWorks CAD & CFD, MATLAB & Simulink, C++</li>
-                        <li><strong>Systems & Hardware:</strong> Linux Server, Docker, DAQ Instrumentation, FEA & Structural Testing</li>
+                        <li><strong>Design & Analysis:</strong> SolidWorks CAD, STAR-CCM+ (CFD), Altium Designer, KiCad</li>
+                        <li><strong>Software & Controls:</strong> Python, MATLAB/Simulink, C++, ArduPilot, Mission Planner</li>
+                        <li><strong>Hardware & Infrastructure:</strong> DAQ Systems, Linux / Docker Server Admin, Advanced 3D Printing</li>
                     </ul>
                 </div>
 
@@ -377,13 +380,15 @@
                 <div class="doc-grid">
                     <!-- RESUME CARD -->
                     <div class="doc-card">
-                        <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
-                        <h3 class="doc-title">PROFESSIONAL RESUME</h3>
-                        <p class="doc-desc">Overview of education, technical competencies, and engineering field experience at CPS Energy.</p>
-                        
-                        <!-- PDF PREVIEW -->
-                        <div class="pdf-preview-box">
-                            <iframe src="assets/resume.pdf#view=FitH" title="Resume Preview"></iframe>
+                        <div>
+                            <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
+                            <h3 class="doc-title">PROFESSIONAL RESUME</h3>
+                            <p class="doc-desc">Overview of education, technical competencies, and engineering field experience at CPS Energy.</p>
+                            
+                            <!-- PDF PREVIEW -->
+                            <div class="pdf-preview-box">
+                                <iframe src="assets/resume.pdf#view=FitH" title="Resume Preview"></iframe>
+                            </div>
                         </div>
 
                         <a href="assets/resume.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
@@ -391,13 +396,15 @@
 
                     <!-- PORTFOLIO CARD -->
                     <div class="doc-card">
-                        <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
-                        <h3 class="doc-title">PROJECT PORTFOLIO</h3>
-                        <p class="doc-desc">Detailed visual documentation of mechanical builds, CAD assemblies, and custom testing infrastructure.</p>
-                        
-                        <!-- PDF PREVIEW -->
-                        <div class="pdf-preview-box">
-                            <iframe src="assets/portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
+                        <div>
+                            <span class="doc-meta">FILE 02 // VISUAL EVIDENCE</span>
+                            <h3 class="doc-title">PROJECT PORTFOLIO</h3>
+                            <p class="doc-desc">Detailed visual documentation of mechanical builds, CAD assemblies, and custom testing infrastructure.</p>
+                            
+                            <!-- PDF PREVIEW -->
+                            <div class="pdf-preview-box">
+                                <iframe src="assets/portfolio.pdf#view=FitH" title="Portfolio Preview"></iframe>
+                            </div>
                         </div>
 
                         <a href="assets/portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
