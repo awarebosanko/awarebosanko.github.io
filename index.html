@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiden Ware Bosanko | Mechanical Engineering</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+ 
     <style>
         /* =========================================
            GLOBAL RESET & VARIABLES
@@ -19,7 +19,7 @@
             --text-dim: #999999;
             --accent-blue: #005A9C;
         }
-
+ 
         html, body {
             margin: 0; padding: 0;
             background-color: var(--pure-black);
@@ -28,7 +28,7 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
-
+ 
         .container { 
             max-width: 1200px; 
             margin: 0 auto; 
@@ -36,7 +36,7 @@
             position: relative; 
             z-index: 2; 
         }
-
+ 
         h1, h2, h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; margin: 0; }
         a { text-decoration: none; }
         
@@ -62,7 +62,7 @@
             letter-spacing: 1px; transition: 0.3s; 
         }
         .nav-links a:hover { opacity: 0.5; color: var(--accent-blue); }
-
+ 
         /* =========================================
            HERO SECTION
            ========================================= */
@@ -75,7 +75,7 @@
             padding: 110px 0 40px; 
             background-color: var(--pure-black);
         }
-
+ 
         .hero-bg-container {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0; overflow: hidden; display: flex; justify-content: center; align-items: center;
@@ -93,7 +93,7 @@
             z-index: 1; pointer-events: none;
             background: linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.85) 75%, rgba(0,0,0,0.98) 100%);
         }
-
+ 
         .hero-grid {
             display: grid;
             grid-template-columns: 1.3fr 0.7fr;
@@ -102,13 +102,13 @@
             position: relative;
             z-index: 3;
         }
-
+ 
         .hero-content {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-
+ 
         .status-tag {
             font-family: 'Space Mono', monospace; font-size: 11px;
             background: var(--accent-blue); color: var(--text-white);
@@ -116,25 +116,25 @@
             display: inline-block; margin-bottom: 12px; text-transform: uppercase;
             align-self: flex-start;
         }
-
+ 
         .name-title {
             font-size: clamp(45px, 6vw, 80px);
             line-height: 1; letter-spacing: -2px; margin-bottom: 10px;
             color: var(--text-white);
         }
-
+ 
         .sub-title {
             font-family: 'Space Mono', monospace; font-size: 12px;
             color: #ddd; letter-spacing: 1px; margin-bottom: 20px;
             text-transform: uppercase;
         }
-
+ 
         /* PRO BIO TEXT */
         .bio-text {
             font-size: 15px; color: #ccc; line-height: 1.7;
         }
         .bio-text p { margin-bottom: 15px; }
-
+ 
         /* INTERACTIVE BLUE HIGHLIGHTS IN BIO */
         .blue-highlight {
             color: var(--accent-blue);
@@ -147,7 +147,7 @@
             background-color: var(--accent-blue);
             color: var(--text-white);
         }
-
+ 
         /* CLEAN WHITE SKILLS LIST */
         .skills-bullet-list {
             margin-top: 10px;
@@ -159,7 +159,7 @@
         }
         .skills-bullet-list li { margin-bottom: 6px; }
         .skills-bullet-list li strong { color: #fff; }
-
+ 
         .hero-visual {
             width: 100%;
             max-width: 260px;
@@ -174,7 +174,7 @@
             width: 100%; height: 100%; object-fit: cover;
             filter: grayscale(5%) contrast(105%);
         }
-
+ 
         /* =========================================
            UNIFIED PAYLOAD SECTION (DOSSIERS + MILESTONES)
            ========================================= */
@@ -184,17 +184,18 @@
             color: var(--pure-black);
             border-bottom: 2px solid var(--pure-black);
         }
-
+ 
         .section-header {
             font-size: 36px; letter-spacing: -1px; margin-bottom: 35px;
             border-bottom: 2px solid var(--pure-black); padding-bottom: 10px;
             color: var(--pure-black);
         }
-
+ 
         .doc-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 500px)); gap: 40px;
+            justify-content: center;
         }
-
+ 
         .doc-card, .milestone-card {
             background: var(--text-white); border: 2px solid var(--pure-black);
             display: flex; flex-direction: column;
@@ -206,11 +207,11 @@
             transform: translateY(-3px);
             box-shadow: 10px 10px 0px var(--pure-black);
         }
-
+ 
         .doc-meta { font-family: 'Space Mono', monospace; font-size: 11px; color: #666; margin-bottom: 10px; display: block; font-weight: 700; }
         .doc-title { font-size: 32px; margin-bottom: 10px; line-height: 1.1; letter-spacing: -1px; color: var(--pure-black); }
         .doc-desc { font-size: 14px; color: #444; margin-bottom: 25px; line-height: 1.5; }
-
+ 
         /* IFRAME PDF VIEWER (UI STRIPPED) */
         .pdf-preview-box {
             width: 100%;
@@ -225,7 +226,7 @@
             height: 100%;
             border: none;
         }
-
+ 
         .btn-download {
             font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px;
             letter-spacing: 1px; text-transform: uppercase; color: var(--text-white);
@@ -233,7 +234,7 @@
             display: block; text-decoration: none; margin-top: auto;
         }
         .btn-download:hover { background: var(--accent-blue); }
-
+ 
         /* MILESTONES GRID */
         .milestones-grid {
             display: grid;
@@ -241,7 +242,7 @@
             gap: 30px;
             margin-top: 30px;
         }
-
+ 
         .milestone-img {
             width: 100%;
             height: 180px;
@@ -249,14 +250,14 @@
             filter: grayscale(15%) contrast(110%);
             border-bottom: 2px solid var(--pure-black);
         }
-
+ 
         .milestone-body {
             padding: 25px;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
-
+ 
         .milestone-tag {
             font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
         }
@@ -266,7 +267,7 @@
         .milestone-desc {
             font-size: 14px; color: #444; line-height: 1.5;
         }
-
+ 
         /* =========================================
            FOOTER 
            ========================================= */
@@ -275,7 +276,7 @@
             background: var(--pure-black);
             border-top: 4px solid var(--pure-black);
         }
-
+ 
         .footer-flex {
             display: flex;
             justify-content: space-between;
@@ -283,11 +284,11 @@
             flex-wrap: wrap;
             gap: 20px;
         }
-
+ 
         .footer-brand {
             font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: -1px; color: var(--text-white);
         }
-
+ 
         .footer-links {
             display: flex;
             gap: 30px;
@@ -297,7 +298,7 @@
             text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
         }
         .footer-links a:hover { color: var(--accent-blue); }
-
+ 
         @media (max-width: 900px) {
             .hero-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero-visual { max-width: 240px; margin: 0 auto; }
@@ -309,7 +310,7 @@
     </style>
 </head>
 <body>
-
+ 
     <div class="master-wrapper">
         
         <!-- NAV -->
@@ -323,41 +324,42 @@
                 </div>
             </div>
         </nav>
-
+ 
         <!-- HERO & ABOUT -->
         <header class="hero-section">
             <div class="hero-bg-container">
                 <div id="heroBg" class="hero-bg"></div>
             </div>
             <div class="hero-side-bars"></div>
-
+ 
             <div class="container hero-grid">
                 <div class="hero-content">
                     <div class="status-tag">TEXAS A&M UNIVERSITY // MECHANICAL ENGINEERING</div>
                     <h1 class="name-title">AIDEN WARE BOSANKO</h1>
                     <div class="sub-title">Target Roles: Propulsion // Systems // Test & Integration</div>
-
+ 
                     <!-- PRO BIO WITH INTERACTIVE BLUE HIGHLIGHTS -->
                     <div class="bio-text">
-                        <p>I am a mechanical engineer specializing in <span class="blue-highlight">systems integration</span>, propulsion, and utility-scale power generation. My experience spans from leading avionics architecture for Texas A&M's Vertical Flight Design team to executing plant-wide <span class="blue-highlight">SCADA diagnostics</span> and <span class="blue-highlight">pressure relief engineering</span> for CPS Energy.</p>
+                        <p>I am a mechanical engineer specializing in <span class="blue-highlight">systems integration</span>, propulsion, and utility-scale power generation. My experience spans from cross-team systems integration for Texas A&M's Vertical Flight Design team to <span class="blue-highlight">SCADA-based fault identification</span> and <span class="blue-highlight">pressure relief engineering</span> for CPS Energy.</p>
                         <p>I build <span class="blue-highlight">fault-tolerant systems</span> that bridge the gap between rigorous computational simulation and physical hardware deployment.</p>
                     </div>
-
+ 
                     <!-- CLEAN WHITE SKILLS LIST -->
                     <ul class="skills-bullet-list">
-                        <li><strong>Core Competencies:</strong> Systems Integration, SCADA Diagnostics, P&IDs, Root Cause Analysis</li>
-                        <li><strong>Design & Simulation:</strong> SolidWorks (CFD & Flow), Altium Designer, KiCad, eCalc</li>
-                        <li><strong>Hardware & Software:</strong> DAQ Instrumentation, ArduPilot, C/C++, Python, CNC Machining</li>
+                        <li><strong>Core Competencies:</strong> Systems Integration, SCADA-Based Fault Identification, One-Line Diagrams, P&IDs, Root Cause Analysis, GD&T</li>
+                        <li><strong>Design & Simulation:</strong> SolidWorks (CFD & Flow), Sketching, eCalc, Altium Designer (developing)</li>
+                        <li><strong>Hardware & Software:</strong> DAQ Instrumentation, ArduPilot, C/C++, Python, Linux, IoT & Embedded Systems, FDM 3D Printing, Laser Cutting, Precision Soldering</li>
+                        <li><strong>Currently Expanding:</strong> Monte Carlo Simulation, Mission Planner & PID Loop Tuning, ANSYS FEA, STAR-CCM+</li>
                     </ul>
                 </div>
-
+ 
                 <!-- HEADSHOT SLOT -->
                 <div class="hero-visual">
                     <img src="assets/Headshot.jpg" alt="Aiden Ware Bosanko">
                 </div>
             </div>
         </header>
-
+ 
         <!-- UNIFIED GREY SECTION: DOSSIERS + MILESTONES -->
         <section id="dossiers" class="payload-section">
             <div class="container" style="max-width: 1350px;">
@@ -373,7 +375,7 @@
                         <div>
                             <span class="doc-meta">FILE 01 // 1-PAGE SUMMARY</span>
                             <h3 class="doc-title">PROFESSIONAL RESUME</h3>
-                            <p class="doc-desc">Overview of education, technical competencies, and engineering field experience at CPS Energy.</p>
+                            <p class="doc-desc">Overview of education, technical competencies, and engineering field experience.</p>
                             
                             <!-- PDF PREVIEW -->
                             <div class="pdf-preview-box">
@@ -382,7 +384,7 @@
                         </div>
                         <a href="assets/aiden-resume.pdf" download class="btn-download">DOWNLOAD RESUME ⬇</a>
                     </div>
-
+ 
                     <!-- PORTFOLIO CARD (UI STRIPPED PREVIEW) -->
                     <div class="doc-card">
                         <div>
@@ -398,15 +400,15 @@
                         <a href="assets/aiden-portfolio.pdf" download class="btn-download">DOWNLOAD PORTFOLIO ⬇</a>
                     </div>
                 </div>
-
+ 
                 <!-- VERTICAL SPACER -->
                 <div style="height: 90px;"></div>
-
+ 
                 <!-- MILESTONES HALF -->
                 <div class="section-header" id="milestones">
                     <h2>RECOGNITION & MILESTONES</h2>
                 </div>
-
+ 
                 <div class="milestones-grid">
                     <div class="milestone-card">
                         <img src="assets/Scholarship-awarded.jpg" alt="Cleary Zimmermann Scholarship Check Presentation" class="milestone-img">
@@ -416,7 +418,7 @@
                             <p class="milestone-desc">Awarded a competitive engineering scholarship recognizing technical drive and academic excellence across Texas higher education.</p>
                         </div>
                     </div>
-
+ 
                     <div class="milestone-card">
                         <img src="assets/STEM-Club-ceramony.jpeg" alt="NLC STEM Organization Ceremony" class="milestone-img">
                         <div class="milestone-body">
@@ -425,7 +427,7 @@
                             <p class="milestone-desc">Bootstrapped and scaled the fastest-growing STEM organization in the Alamo Colleges district to 50+ active engineering members.</p>
                         </div>
                     </div>
-
+ 
                     <div class="milestone-card">
                         <img src="assets/Associates-awarded.jpeg" alt="Associate of Science Diploma with Honors" class="milestone-img">
                         <div class="milestone-body">
@@ -435,10 +437,10 @@
                         </div>
                     </div>
                 </div>
-
+ 
             </div>
         </section>
-
+ 
         <!-- FOOTER -->
         <footer id="footer" class="footer-section">
             <div class="container footer-flex">
@@ -450,9 +452,9 @@
                 </div>
             </div>
         </footer>
-
+ 
     </div>
-
+ 
     <!-- SCRIPT FOR SLIDESHOW -->
     <script>
         const photos = [
@@ -462,13 +464,13 @@
             'assets/CPS-AWARD.jpeg',
             'assets/Aggies-Invent-thumbs-up.jpeg',
             'assets/STEM-Club-award.jpeg',
-            'assets/presenting-meeting-1.jpeg',
+            'assets/presenting-meeting-1.jpg',
             'assets/Scholarship.jpeg'
         ];
-
+ 
         let currentIndex = Math.floor(Math.random() * photos.length);
         const heroBg = document.getElementById('heroBg');
-
+ 
         function updateBackground() {
             heroBg.style.opacity = 0;
             setTimeout(() => {
@@ -477,13 +479,14 @@
                 currentIndex = (currentIndex + 1) % photos.length;
             }, 600);
         }
-
+ 
         heroBg.style.backgroundImage = `url('${photos[currentIndex]}')`;
         heroBg.style.transition = 'opacity 0.8s ease-in-out';
         heroBg.style.opacity = 1;
-
+ 
         setInterval(updateBackground, 6000);
     </script>
-
+ 
 </body>
 </html>
+ 
